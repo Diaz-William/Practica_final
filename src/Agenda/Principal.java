@@ -6,7 +6,7 @@ package Agenda;
 
 /**
  *
- * @author elias
+ * @author William Elias Diaz Santana y Joel Blanco Otero
  */
 public class Principal {
 
