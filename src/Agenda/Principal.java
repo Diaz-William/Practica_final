@@ -1,13 +1,21 @@
 package Agenda;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Principal {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) 
+    {
+        int respuesta = 100;
         menuPrincipal();
+        respuesta=leerInt(respuesta,4);
         menuEventos();
+        respuesta=leerInt(respuesta,12);
         menuContactos();
+        respuesta=leerInt(respuesta,6);
         menuImprimirMes();
+        respuesta=leerInt(respuesta,13);
     }//main
     //--------------------------------------------------------------------------
     static void menuPrincipal()
@@ -50,7 +58,6 @@ public class Principal {
     static void menuImprimirMes()
     {
         System.out.println("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL ");
-        System.out.println("\s\sElija un mes:");
         System.out.println("\s\s\s\s1)ENERO");
         System.out.println("\s\s\s\s2)FEBRERO");
         System.out.println("\s\s\s\s3)MARZO");
@@ -67,5 +74,22 @@ public class Principal {
         
     }//menuImprimirMes
     //--------------------------------------------------------------------------
-    
+    private static int leerInt(int respuesta, int limite)
+    {
+        Scanner entrada = new Scanner(System.in);
+        do {
+            try
+            {
+                System.out.print("\n\s\s\sElija una opción");
+                respuesta = entrada.nextInt();
+                if (respuesta < 0 && respuesta > limite) 
+                    System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
+            
+            }catch (Exception e) {
+                System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
+            }
+            
+        } while (respuesta <= 0 && respuesta > limite);
+        return respuesta;
+    }
 }
