@@ -7,8 +7,6 @@ public class Entrada {
     
     
     //METODOS
-    
-    //--------------------------------------------------------------------------
     public int leerEntero(String mensaje) {
         System.out.print(mensaje);
         return (entrada.nextInt());
@@ -19,4 +17,7 @@ public class Entrada {
         return (entrada.nextLine());
     }
     //--------------------------------------------------------------------------
+    public void limpiarBuffer() {
+        entrada.nextLine();
+    }
 }//Class

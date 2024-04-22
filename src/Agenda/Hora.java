@@ -1,13 +1,13 @@
 package Agenda;
 
-public class Dia 
+import java.util.ArrayList;
+
+public class Hora
 {
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //ATRIBUTOS
-    private Hora horas[] = new Hora [48];
-    private int numDia;
-
+    private ArrayList <Evento> eventos = new ArrayList();
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
     
@@ -18,5 +18,5 @@ public class Dia
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
-    //METODOS    
+    //METODOS
 }
