@@ -3,7 +3,8 @@ package Agenda;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Principal {
+public class Principal 
+{
     Entrada entrada = new Entrada();
     //--------------------------------------------------------------------------
     public static void main(String[] args) 
