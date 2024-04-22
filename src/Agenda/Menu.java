@@ -1,5 +1,6 @@
 package Agenda;
 
+//API
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Scanner;
@@ -43,9 +44,9 @@ public class Menu
         System.out.println("\s\s6)//Salir//");  
     }//menuContactos
     //--------------------------------------------------------------------------
-    public void menuImprimirMes()
+    public void menuImprimirMes(String mensaje)
     {
-        System.out.println("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL ");
+        System.out.println(mensaje);
         System.out.println("\s\s\s\s1)ENERO");
         System.out.println("\s\s\s\s2)FEBRERO");
         System.out.println("\s\s\s\s3)MARZO");

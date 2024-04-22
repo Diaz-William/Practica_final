@@ -1,5 +1,6 @@
 package Agenda;
 
+//API
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -17,7 +18,13 @@ public abstract class Evento
 
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
-    
+    public Evento(String nombre, String explicacion, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+        this.nombre = nombre;
+        this.explicacion = explicacion;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.todoElDia = todoElDia;
+    }
     
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
@@ -30,4 +37,6 @@ public abstract class Evento
       //*******************************//
      // ari tiene que hacer la chicha //
     //*******************************//
+
+
 }

@@ -1,19 +1,30 @@
 package Agenda;
 
+//API
 import java.awt.*;
 import java.io.*;
 import java.util.*;
-
+        /*TO DO:
+            PRINCIPAL -> años, se puede comprobar con el ultimo dia del mes con local date y si es 28 o 29
+            TAREA -> comprobar ultimo dia del mes en la comprobación 
+            GENERAL -> pasar el try catch a entrada
+            ENTRADA -> poner entrada de fecha
+            
+        */
 public class Principal 
 {
-    Entrada entrada = new Entrada();
-    Menu menu = new Menu();
-    ArrayList <Mes> meses = new ArrayList();
+    Entrada entrada                 = new Entrada();
+    Menu menu                       = new Menu();
+    Recordatorio eventoRecordatorio = new Recordatorio();///////////////////////////////
+    Tarea eventoTarea               = new Tarea();///////////////////////////////
+    ArrayList <Mes> meses           = new ArrayList();
     //--------------------------------------------------------------------------
     public static void main(String[] args) throws AWTException, InterruptedException 
     {
         Principal principal = new Principal();
+
         principal.inicio();
+        
     }//main
     //--------------------------------------------------------------------------
     private void inicio() throws AWTException, InterruptedException {
@@ -25,7 +36,7 @@ public class Principal
         while (respuesta != limite)
         {
             menu.menuPrincipal();
-            respuesta = leerInt(respuesta,limite);
+            respuesta = eleccion(respuesta,limite);
             switch (respuesta)
             {
                 case 1:
@@ -33,7 +44,7 @@ public class Principal
                     menu.limpiar();
                     menu.menuEventos();
                     limite = 12;
-                    respuesta = leerInt(respuesta,limite);
+                    respuesta = eleccion(respuesta,limite);
                     eleccionMenuEventos(respuesta);
                     break;
                 }
@@ -42,16 +53,16 @@ public class Principal
                     menu.limpiar();
                     menu.menuContactos();
                     limite = 6;
-                    respuesta = leerInt(respuesta,limite);
+                    respuesta = eleccion(respuesta,limite);
                     eleccionMenuContactos(respuesta);
                     break;
                 }
                 case 3:
                 {
                     menu.limpiar();
-                    menu.menuImprimirMes();
+                    menu.menuImprimirMes("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL");
                     limite = 13;
-                    respuesta = leerInt(respuesta,limite);
+                    respuesta = eleccion(respuesta,limite);
                     eleccionMenuMes(respuesta);
                     break;
                 }
@@ -68,10 +79,10 @@ public class Principal
     {
         switch (respuesta)
         {
-            case 1  -> crearRecordatorio();
-            case 2  -> crearTarea();
-            case 3  -> borrarRecordatorio();
-            case 4  -> borrarTarea();
+            case 1  -> eventoRecordatorio.crearRecordatorio();
+            case 2  -> eventoTarea.crearTarea(entrada);
+            case 3  -> eventoRecordatorio.borrarRecordatorio();
+            case 4  -> eventoTarea.borrarTarea();
             case 5  -> imprimirEventosDia();
             case 6  -> imprimirEventosMes();
             case 7  -> imprimirEventosMesDiaHora();
@@ -99,7 +110,7 @@ public class Principal
         meses.get(respuesta-1).eventosDelMes();
     }//eleccionMenuMes
     //--------------------------------------------------------------------------
-    private int leerInt(int respuesta, int limite)
+    private int eleccion(int respuesta, int limite)
     {
         do {
             try
@@ -116,7 +127,7 @@ public class Principal
             
         } while (respuesta <= 0 || respuesta > limite);
         return respuesta;
-    }//leerInt
+    }//eleccion
     //--------------------------------------------------------------------------
     
     

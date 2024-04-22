@@ -1,5 +1,6 @@
 package Agenda;
 
+//API
 import java.util.Scanner;
 
 public class Entrada {
@@ -13,6 +14,11 @@ public class Entrada {
     }//leerEntero
     //--------------------------------------------------------------------------
     public String leerCadena(String mensaje) {
+        System.out.print(mensaje);
+        return (entrada.nextLine());
+    }//leerCadena
+    //--------------------------------------------------------------------------
+    public String leerFecha(String mensaje) {
         System.out.print(mensaje);
         return (entrada.nextLine());
     }//leerCadena
