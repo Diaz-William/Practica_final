@@ -24,7 +24,7 @@ public class Hora
         for (Evento evento : eventos) {
             if (evento != null)
             {
-                //evento.laChicha
+                //evento.laChicha(evento)
             }
         }
     }//info
