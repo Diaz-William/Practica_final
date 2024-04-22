@@ -35,5 +35,5 @@ public class Mes
                 //dia.infoEvento
             }
         }
-    }
+    }//eventosDelMes
 }

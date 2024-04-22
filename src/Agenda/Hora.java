@@ -27,5 +27,5 @@ public class Hora
                 //evento.laChicha
             }
         }
-    }
+    }//info
 }

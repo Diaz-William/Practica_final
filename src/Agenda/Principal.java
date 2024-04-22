@@ -18,7 +18,7 @@ public class Principal
     //--------------------------------------------------------------------------
     private void inicio() throws AWTException, InterruptedException {
         menu();
-    }
+    }//inicio
     //--------------------------------------------------------------------------
     private void menu() throws AWTException, InterruptedException {
         int respuesta = 0, limite = 4;
@@ -62,7 +62,7 @@ public class Principal
                 }
             }
         }
-    }
+    }//menu
     //--------------------------------------------------------------------------
     private void eleccionMenuEventos(int respuesta)
     {
@@ -80,7 +80,7 @@ public class Principal
             case 10 -> guardarFicheroMes();
             case 11 -> guardarFicheroDia();
         }
-    }
+    }//eleccionMenuEventos
     //--------------------------------------------------------------------------
     private void eleccionMenuContactos(int respuesta)
     {
@@ -92,13 +92,13 @@ public class Principal
             case 4  -> buscarContacto();
             case 5  -> guardarCotacto();
         }
-    }
+    }//eleccionMenuContactos
     //--------------------------------------------------------------------------
     private void eleccionMenuMes(int respuesta)
     {
         meses.get(respuesta-1).eventosDelMes();
-    }
-    
+    }//eleccionMenuMes
+    //--------------------------------------------------------------------------
     private int leerInt(int respuesta, int limite)
     {
         do {
@@ -116,6 +116,8 @@ public class Principal
             
         } while (respuesta <= 0 || respuesta > limite);
         return respuesta;
-    }
+    }//leerInt
+    //--------------------------------------------------------------------------
+    
     
 }

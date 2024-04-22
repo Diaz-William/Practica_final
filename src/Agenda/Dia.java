@@ -29,6 +29,6 @@ public class Dia
                 //hora.info
             }
         }
-    }
+    }//infoEventos
    
 }
