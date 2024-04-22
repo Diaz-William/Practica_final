@@ -80,16 +80,16 @@ public class Principal {
         do {
             try
             {
-                System.out.print("\n\s\s\sElija una opción");
+                System.out.print("\n\s\s\sElija una opción > ");
                 respuesta = entrada.nextInt();
-                if (respuesta < 0 && respuesta > limite) 
+                if (respuesta < 0 || respuesta > limite) 
                     System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
             
             }catch (Exception e) {
                 System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
             }
             
-        } while (respuesta <= 0 && respuesta > limite);
+        } while (respuesta <= 0 || respuesta > limite);
         return respuesta;
     }
 }
