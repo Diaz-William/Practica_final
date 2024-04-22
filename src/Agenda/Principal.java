@@ -4,21 +4,28 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Principal {
-
+    Entrada entrada = new Entrada();
+    //--------------------------------------------------------------------------
     public static void main(String[] args) 
     {
-        int respuesta = 0;
-        menuPrincipal();
-        respuesta=leerInt(respuesta,4);
-        menuEventos();
-        respuesta=leerInt(respuesta,12);
-        menuContactos();
-        respuesta=leerInt(respuesta,6);
-        menuImprimirMes();
-        respuesta=leerInt(respuesta,13);
+        Principal principal = new Principal();
+        principal.inicio();
+        
     }//main
     //--------------------------------------------------------------------------
-    static void menuPrincipal()
+    public void inicio() {
+        int respuesta = 0;
+        menuPrincipal();
+        respuesta = leerInt(respuesta,4);
+        menuEventos();
+        respuesta = leerInt(respuesta,12);
+        menuContactos();
+        respuesta = leerInt(respuesta,6);
+        menuImprimirMes();
+        respuesta = leerInt(respuesta,13);
+    }
+    //--------------------------------------------------------------------------
+    private void menuPrincipal()
     {
         System.out.println("--MENÚ PRINCIPAL--");
         System.out.println("\s\s1)Menú de Eventos y Tareas");
@@ -27,7 +34,7 @@ public class Principal {
         System.out.println("\s\s4)//Salir//");
     }//menuPrincipal
     //--------------------------------------------------------------------------
-    static void menuEventos()
+    private void menuEventos()
     {
         System.out.println("--MENÚ DE EVENTOS Y TAREAS--");
         System.out.println("\s\s1)Crear un evento recordatorio");
@@ -44,7 +51,7 @@ public class Principal {
         System.out.println("\s\s12)//Salir//");
     }//menuEventos
     //--------------------------------------------------------------------------
-    static void menuContactos()
+    private void menuContactos()
     {
         System.out.println("--MENÚ DE LISTA DE CONTACTOS");
         System.out.println("\s\s1)Leer contactos");
@@ -55,7 +62,7 @@ public class Principal {
         System.out.println("\s\s6)//Salir//");  
     }//menuContactos
     //--------------------------------------------------------------------------
-    static void menuImprimirMes()
+    private void menuImprimirMes()
     {
         System.out.println("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL ");
         System.out.println("\s\s\s\s1)ENERO");
@@ -74,20 +81,18 @@ public class Principal {
         
     }//menuImprimirMes
     //--------------------------------------------------------------------------
-    private static int leerInt(int respuesta, int limite)
+    private int leerInt(int respuesta, int limite)
     {
-        Scanner entrada = new Scanner(System.in);
         do {
             try
             {
-                System.out.print("\n\s\s\sElija una opción > ");
-                respuesta = entrada.nextInt();
-                if (respuesta < 0 || respuesta > limite) 
+                respuesta = entrada.leerEntero("\n\s\s\sElija una opción > ");
+                if (respuesta < 1 || respuesta > limite) 
                     System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
             }catch (Exception e)
             {
                 System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
-                entrada.nextLine();
+                //entrada.nextLine();
                 respuesta=0;
             }
             
