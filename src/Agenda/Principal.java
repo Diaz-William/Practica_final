@@ -7,7 +7,7 @@ public class Principal {
 
     public static void main(String[] args) 
     {
-        int respuesta = 100;
+        int respuesta = 0;
         menuPrincipal();
         respuesta=leerInt(respuesta,4);
         menuEventos();
