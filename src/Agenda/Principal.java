@@ -84,9 +84,11 @@ public class Principal {
                 respuesta = entrada.nextInt();
                 if (respuesta < 0 || respuesta > limite) 
                     System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
-            
-            }catch (Exception e) {
+            }catch (Exception e)
+            {
                 System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
+                entrada.nextLine();
+                respuesta=0;
             }
             
         } while (respuesta <= 0 || respuesta > limite);
