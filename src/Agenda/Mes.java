@@ -26,5 +26,14 @@ public class Mes
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS     
-
+    public void eventosDelMes() 
+    {
+        for (Dia dia : dias) {
+            if (dia != null)
+            {
+                System.out.println("Dia " + dia.getNumDia());
+                //dia.infoEvento
+            }
+        }
+    }
 }

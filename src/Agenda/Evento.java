@@ -27,4 +27,6 @@ public abstract class Evento
     //--------------------------------------------------------------------------
     //METODOS
     
+    
+    //ari tiene que hacer la chicha
 }

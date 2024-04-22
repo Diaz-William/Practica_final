@@ -17,27 +17,15 @@ public class Principal
     }//main
     //--------------------------------------------------------------------------
     private void inicio() throws AWTException, InterruptedException {
-        int respuesta = 0;
-        menu.menuPrincipal();
-        respuesta = leerInt(respuesta,4);
-        menu.limpiar();
-        menu.menuEventos();
-        respuesta = leerInt(respuesta,12);
-        menu.limpiar();
-        menu.menuContactos();
-        respuesta = leerInt(respuesta,6);
-        menu.limpiar();
-        menu.menuImprimirMes();
-        respuesta = leerInt(respuesta,13);
-        menu.limpiar();
+        menu();
     }
     //--------------------------------------------------------------------------
     private void menu() throws AWTException, InterruptedException {
         int respuesta = 0, limite = 4;
-        menu.menuPrincipal();
-        respuesta = leerInt(respuesta,limite);
         while (respuesta != limite)
         {
+            menu.menuPrincipal();
+            respuesta = leerInt(respuesta,limite);
             switch (respuesta)
             {
                 case 1:
@@ -46,6 +34,7 @@ public class Principal
                     menu.menuEventos();
                     limite = 12;
                     respuesta = leerInt(respuesta,limite);
+                    eleccionMenuEventos(respuesta);
                     break;
                 }
                 case 2:
@@ -54,6 +43,7 @@ public class Principal
                     menu.menuContactos();
                     limite = 6;
                     respuesta = leerInt(respuesta,limite);
+                    eleccionMenuContactos(respuesta);
                     break;
                 }
                 case 3:
@@ -62,6 +52,7 @@ public class Principal
                     menu.menuImprimirMes();
                     limite = 13;
                     respuesta = leerInt(respuesta,limite);
+                    eleccionMenuMes(respuesta);
                     break;
                 }
                 default : 
@@ -73,6 +64,41 @@ public class Principal
         }
     }
     //--------------------------------------------------------------------------
+    private void eleccionMenuEventos(int respuesta)
+    {
+        switch (respuesta)
+        {
+            case 1  -> crearRecordatorio();
+            case 2  -> crearTarea();
+            case 3  -> borrarRecordatorio();
+            case 4  -> borrarTarea();
+            case 5  -> imprimirEventosDia();
+            case 6  -> imprimirEventosMes();
+            case 7  -> imprimirEventosMesDiaHora();
+            case 8  -> leerFicheros();
+            case 9  -> guardarFicheroAnio();
+            case 10 -> guardarFicheroMes();
+            case 11 -> guardarFicheroDia();
+        }
+    }
+    //--------------------------------------------------------------------------
+    private void eleccionMenuContactos(int respuesta)
+    {
+        switch (respuesta)
+        {
+            case 1  -> leerContactos();
+            case 2  -> crearContacto();
+            case 3  -> listarContactos();
+            case 4  -> buscarContacto();
+            case 5  -> guardarCotacto();
+        }
+    }
+    //--------------------------------------------------------------------------
+    private void eleccionMenuMes(int respuesta)
+    {
+        meses.get(respuesta-1).eventosDelMes();
+    }
+    
     private int leerInt(int respuesta, int limite)
     {
         do {
