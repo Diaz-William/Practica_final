@@ -3,6 +3,7 @@ package Agenda;
 //API
 import java.awt.*;
 import java.io.*;
+import java.time.Year;
 import java.util.*;
         /*TO DO:
             PRINCIPAL -> años, se puede comprobar con el ultimo dia del mes con local date y si es 28 o 29
@@ -30,6 +31,28 @@ public class Principal
     private void inicio() throws AWTException, InterruptedException {
         menu();
     }//inicio
+    //--------------------------------------------------------------------------
+    private void instanciarMeses()
+    {
+        int anio = entrada.leerEntero("Introduce el año > ");
+        meses.add(new Mes("Enero", 31));
+        boolean bisiesto = Year.of(anio).isLeap();
+        if (bisiesto) {
+            meses.add(new Mes("Febreo", 29));
+        }else {
+            meses.add(new Mes("Febreo", 28));
+        }
+        meses.add(new Mes("Marzo", 31));
+        meses.add(new Mes("Abril", 30));
+        meses.add(new Mes("Mayo", 31));
+        meses.add(new Mes("Junio", 30));
+        meses.add(new Mes("Julio", 31));
+        meses.add(new Mes("Agosto", 31));
+        meses.add(new Mes("Septiembre", 30));
+        meses.add(new Mes("Octubre", 31));
+        meses.add(new Mes("Noviembre", 30));
+        meses.add(new Mes("Diciembre", 31));
+    }
     //--------------------------------------------------------------------------
     private void menu() throws AWTException, InterruptedException {
         int respuesta = 0, limite = 4;

@@ -12,9 +12,9 @@ public class Mes
     
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
-    public Mes(int cantidadDias, String nombreMes) {
-        this.dias = new Dia[cantidadDias];
+    public Mes(String nombreMes, int cantidadDias) {
         this.nombreMes = nombreMes;
+        this.dias = new Dia[cantidadDias];
         this.numMes = siguienteMes;
         siguienteMes++;
     }
