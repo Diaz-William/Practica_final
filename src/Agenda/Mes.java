@@ -18,6 +18,7 @@ public class Mes
         this.dias = new Dia[cantidadDias];
         this.numMes = siguienteMes;
         siguienteMes++;
+        instanciarDias();
     }
         
     //--------------------------------------------------------------------------
@@ -29,7 +30,13 @@ public class Mes
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
-    //METODOS     
+    //METODOS 
+    private void instanciarDias()
+    {
+        for (int i = 0; i < dias.length; i++) 
+            dias[i] = new Dia(i+1);
+    }//instanciarDias
+    //--------------------------------------------------------------------------
     public void eventosDelMes() 
     {
         for (Dia dia : dias) {
@@ -41,13 +48,13 @@ public class Mes
         }
     }//eventosDelMes
     //--------------------------------------------------------------------------
-    public void recordatorioNuevo()
+    public void recordatorioNuevo(int eleccion)
     {
         int dia = 0;
         do {            
-            dia = entrada.leerEntero("Introduce el dia [1-" + getUltimoDia() + "] > ");
+            dia = entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
         dia -= 1;
-        dias[dia].horaRecordatorio();
+        dias[dia].horaRecordatorio(eleccion);
     }
 }

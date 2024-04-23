@@ -37,6 +37,10 @@ public abstract class Evento
       //*******************************//
      // ari tiene que hacer la chicha //
     //*******************************//
-
+    public void pedirInfo ()
+    {
+        
+    }//pedirInfo
+    //--------------------------------------------------------------------------
 
 }

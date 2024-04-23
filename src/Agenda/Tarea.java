@@ -29,7 +29,7 @@ public class Tarea extends Evento
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS
-    public void crearTarea(Entrada entrada)
+    /*public void crearTarea(Entrada entrada)
     {
         LocalDate fechaEvento;
         System.out.println("Creando tarea...");
@@ -47,5 +47,5 @@ public class Tarea extends Evento
 
             comprobacion = true;
         return comprobacion;
-    }
+    }*/
 }

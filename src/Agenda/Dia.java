@@ -15,6 +15,11 @@ public class Dia
 
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
+
+    public Dia(int numDia) {
+        this.numDia = numDia;
+        instanciarHoras();
+    }
     
     
     //--------------------------------------------------------------------------
@@ -26,6 +31,16 @@ public class Dia
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS    
+    private void instanciarHoras()
+    {
+        for (int i = 0; i < horas.length; i++) {
+            if (i%2 == 0) 
+                horas[i] = (new Hora(i+":00"));
+            else
+                horas[i] = (new Hora(i+":30"));
+        }
+    }//instanciarHoras
+    //--------------------------------------------------------------------------
     public void infoEvento()
     {
         for (Hora hora : horas) {
@@ -36,31 +51,54 @@ public class Dia
         }
     }//infoEventos
     //--------------------------------------------------------------------------
-    public void horaRecordatorio()
+    public void horaRecordatorio(int eleccion)
     {
-        int h = -1;
+        int h            = -1;
+        int op           =  0;
+        int opTipoEvento = -1;
+        int posicion     =  0;
+        
+        System.out.println("\s\s\s1) El evento es a una hora concreta.");
+        System.out.println("\s\s\s2) El evento es para todo el dia.");
         do
         {            
-            h = entrada.leerEntero("Introduce la hora [0-23] > ");
-        } while (h < 0 || h > 23);
-        System.out.println("1) " + h + ":00");
-        System.out.println("2) " + h + ":30");
-        int op = 0;
-        do
-        {            
-            op = entrada.leerEntero("\nElije una opcion > ");
-        } while (op < 1 || op > 2);
-        if (op == 1)
+            opTipoEvento = entrada.leerEntero("\n\s\s\sElija una opcion > ");
+        } while (opTipoEvento < 1 || opTipoEvento > 2);
+        if (opTipoEvento == 1) 
         {
-            hora = LocalTime.of(h, 00);
-        }else
+            do
+            {            
+                h = entrada.leerEntero("\s\s\sIntroduzca la hora [0-23] > ");
+            } while (h < 0 || h > 23);
+            System.out.println("\s\s\s1) " + h + ":00");
+            System.out.println("\s\s\s2) " + h + ":30");
+            op = 0;
+            do
+            {            
+                op = entrada.leerEntero("\n\s\s\sElija una opcion > ");
+            } while (op < 1 || op > 2);
+            if (op == 1)
+                hora = LocalTime.of(h, 00);
+            else
+                hora = LocalTime.of(h, 30);
+            
+            posicion = h * 2;
+            if (hora.getMinute() == 30) 
+                posicion += 1;
+            
+            if (eleccion == 1)
+                horas[posicion].recordatorio(hora,false);
+            else
+                horas[posicion].tarea(hora,false);
+        }
+        else
         {
-            hora = LocalTime.of(h, 30);
+            if (eleccion == 1)
+                horas[posicion].recordatorio(hora,true);
+            else
+                horas[posicion].tarea(hora,true);
         }
-        int posicion = h * 2;
-        if (hora.getMinute() == 30) {
-            posicion += 1;
-        }
-        horas[posicion].recordatorio(hora);
+
+
     }
 }

@@ -19,7 +19,7 @@ public class Entrada {
         } catch (Exception e)
         {
             limpiarBuffer();
-            num = leerEntero("Error: Introduce un numero > ");
+            num = leerEntero("\s\s\sError: Introduce un numero > ");
         }
         return num;
     }//leerEntero
@@ -34,7 +34,7 @@ public class Entrada {
         } catch (Exception e)
         {
             limpiarBuffer();
-            cadena = leerCadena("Error: Introduce una cadena > ");
+            cadena = leerCadena("\s\s\sError: Introduce una cadena > ");
         }
         return (cadena);
     }//leerCadena

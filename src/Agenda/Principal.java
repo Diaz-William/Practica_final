@@ -5,13 +5,15 @@ import java.awt.*;
 import java.io.*;
 import java.time.Year;
 import java.util.*;
-        /*TO DO:
-            PRINCIPAL -> años, se puede comprobar con el ultimo dia del mes con local date y si es 28 o 29
-            TAREA -> comprobar ultimo dia del mes en la comprobación 
-            GENERAL -> pasar el try catch a entrada
-            ENTRADA -> poner entrada de fecha
-            
-        */
+
+/*TO DO:
+    PRINCIPAL -> años, se puede comprobar con el ultimo dia del mes con local date y si es 28 o 29
+    TAREA -> comprobar ultimo dia del mes en la comprobación 
+    GENERAL -> pasar el try catch a entrada
+    ENTRADA -> poner entrada de fecha
+
+*/
+
 public class Principal 
 {
     Entrada entrada                 = new Entrada();
@@ -38,11 +40,11 @@ public class Principal
         int anio = entrada.leerEntero("Introduce el año > ");
         meses.add(new Mes("Enero", 31));
         boolean bisiesto = Year.of(anio).isLeap();
-        if (bisiesto) {
+        if (bisiesto) 
             meses.add(new Mes("Febreo", 29));
-        }else {
+        else 
             meses.add(new Mes("Febreo", 28));
-        }
+        
         meses.add(new Mes("Marzo", 31));
         meses.add(new Mes("Abril", 30));
         meses.add(new Mes("Mayo", 31));
@@ -104,9 +106,9 @@ public class Principal
         switch (respuesta)
         {
             //case 1  -> eventoRecordatorio.crearRecordatorio();
-            case 1  -> crearRecordatorio();
-            case 2  -> eventoTarea.crearTarea(entrada);
-            case 3  -> eventoRecordatorio.borrarRecordatorio();
+            case 1  -> crearRecordatorioTarea(respuesta);
+            case 2  -> crearRecordatorioTarea(respuesta);
+            /*case 3  -> eventoRecordatorio.borrarRecordatorio();
             case 4  -> eventoTarea.borrarTarea();
             case 5  -> imprimirEventosDia();
             case 6  -> imprimirEventosMes();
@@ -114,20 +116,20 @@ public class Principal
             case 8  -> leerFicheros();
             case 9  -> guardarFicheroAnio();
             case 10 -> guardarFicheroMes();
-            case 11 -> guardarFicheroDia();
+            case 11 -> guardarFicheroDia();*/
         }
     }//eleccionMenuEventos
     //--------------------------------------------------------------------------
     private void eleccionMenuContactos(int respuesta)
     {
-        switch (respuesta)
+        /*switch (respuesta)
         {
             case 1  -> leerContactos();
             case 2  -> crearContacto();
             case 3  -> listarContactos();
             case 4  -> buscarContacto();
             case 5  -> guardarCotacto();
-        }
+        }*/
     }//eleccionMenuContactos
     //--------------------------------------------------------------------------
     private void eleccionMenuMes(int respuesta)
@@ -138,29 +140,22 @@ public class Principal
     private int eleccion(int respuesta, int limite)
     {
         do {
-            try
-            {
-                respuesta = entrada.leerEntero("\n\s\s\sElija una opción > ");
-                if (respuesta < 1 || respuesta > limite) 
-                    System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
-            }catch (Exception e)
-            {
-                System.out.println("OPCIÓN INVÁLIDA [1-"+ limite + "]");
-                entrada.limpiarBuffer();
-                respuesta=0;
-            }
-            
+            respuesta = entrada.leerEntero("\n\s\s\sElija una opción > ");
+            if (respuesta < 1 || respuesta > limite) 
+                System.out.print("\s\s\sOPCIÓN INVÁLIDA [1-"+ limite + "]");
+
+            entrada.limpiarBuffer();
         } while (respuesta <= 0 || respuesta > limite);
         return respuesta;
     }//eleccion
     //--------------------------------------------------------------------------
-    private void crearRecordatorio()
+    private void crearRecordatorioTarea(int eleccion)
     {
         int mes = 0;
         do {            
-            mes = entrada.leerEntero("Introduce el numero del mes [1-12] > ");
+            mes = entrada.leerEntero("\s\s\sIntroduzca el numero del mes [1-12] > ");
         } while (mes < 1 || mes > 12);
         mes -= 1;
-        meses.get(mes).recordatorioNuevo();
+        meses.get(mes).recordatorioNuevo(eleccion);
     }
 }
