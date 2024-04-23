@@ -1,5 +1,6 @@
 package Agenda;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Hora
@@ -28,4 +29,9 @@ public class Hora
             }
         }
     }//info
+    //--------------------------------------------------------------------------
+    public void recordatorio(LocalTime hora)
+    {
+        eventos.add(new Recordatorio);
+    }
 }

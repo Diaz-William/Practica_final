@@ -9,7 +9,7 @@ public class Mes
     private int numMes;
     private String nombreMes;
     private static int siguienteMes = 1;
-    Entrada entrada = new Entrada();
+    private Entrada entrada = new Entrada();
     
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
@@ -47,5 +47,7 @@ public class Mes
         do {            
             dia = entrada.leerEntero("Introduce el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
+        dia -= 1;
+        dias[dia].horaRecordatorio();
     }
 }
