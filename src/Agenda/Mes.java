@@ -46,6 +46,6 @@ public class Mes
         int dia = 0;
         do {            
             dia = entrada.leerEntero("Introduce el dia [1-" + getUltimoDia() + "] > ");
-        } while (true);
+        } while (dia < 1 || dia > getUltimoDia());
     }
 }
