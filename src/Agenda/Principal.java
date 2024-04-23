@@ -16,8 +16,8 @@ public class Principal
 {
     Entrada entrada                 = new Entrada();
     Menu menu                       = new Menu();
-    Recordatorio eventoRecordatorio = new Recordatorio();///////////////////////////////
-    Tarea eventoTarea               = new Tarea();///////////////////////////////
+    //Recordatorio eventoRecordatorio = new Recordatorio();///////////////////////////////
+    //Tarea eventoTarea               = new Tarea();///////////////////////////////
     ArrayList <Mes> meses           = new ArrayList();
     //--------------------------------------------------------------------------
     public static void main(String[] args) throws AWTException, InterruptedException 
@@ -103,7 +103,8 @@ public class Principal
     {
         switch (respuesta)
         {
-            case 1  -> eventoRecordatorio.crearRecordatorio();
+            //case 1  -> eventoRecordatorio.crearRecordatorio();
+            case 1  -> crearRecordatorio();
             case 2  -> eventoTarea.crearTarea(entrada);
             case 3  -> eventoRecordatorio.borrarRecordatorio();
             case 4  -> eventoTarea.borrarTarea();
@@ -153,6 +154,13 @@ public class Principal
         return respuesta;
     }//eleccion
     //--------------------------------------------------------------------------
-    
-    
+    private void crearRecordatorio()
+    {
+        int mes = 0;
+        do {            
+            mes = entrada.leerEntero("Introduce el numero del mes [1-12] > ");
+        } while (mes < 1 || mes > 12);
+        mes -= 1;
+        meses.get(mes).recordatorioNuevo();
+    }
 }
