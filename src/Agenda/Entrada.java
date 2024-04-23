@@ -5,25 +5,42 @@ import java.util.Scanner;
 
 public class Entrada {
     Scanner entrada = new Scanner(System.in);
-    
+    int num;
+    String cadena;
     
     //METODOS
-    public int leerEntero(String mensaje) {
+    public int leerEntero(String mensaje)
+    {
+        num = 0;
         System.out.print(mensaje);
-        return (entrada.nextInt());
+        try
+        {
+            num = entrada.nextInt();
+        } catch (Exception e)
+        {
+            limpiarBuffer();
+            num = leerEntero("Error: Introduce un numero > ");
+        }
+        return num;
     }//leerEntero
     //--------------------------------------------------------------------------
-    public String leerCadena(String mensaje) {
+    public String leerCadena(String mensaje)
+    {
+        cadena = null;
         System.out.print(mensaje);
-        return (entrada.nextLine());
+        try
+        {
+            cadena = entrada.nextLine();
+        } catch (Exception e)
+        {
+            limpiarBuffer();
+            cadena = leerCadena("Error: Introduce una cadena > ");
+        }
+        return (cadena);
     }//leerCadena
     //--------------------------------------------------------------------------
-    public String leerFecha(String mensaje) {
-        System.out.print(mensaje);
-        return (entrada.nextLine());
-    }//leerCadena
-    //--------------------------------------------------------------------------
-    public void limpiarBuffer() {
+    public void limpiarBuffer()
+    {
         entrada.nextLine();
     }
 }//Class

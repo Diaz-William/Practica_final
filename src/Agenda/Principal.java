@@ -29,6 +29,7 @@ public class Principal
     }//main
     //--------------------------------------------------------------------------
     private void inicio() throws AWTException, InterruptedException {
+        instanciarMeses();
         menu();
     }//inicio
     //--------------------------------------------------------------------------
