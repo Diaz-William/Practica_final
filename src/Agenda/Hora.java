@@ -41,6 +41,42 @@ public class Hora
         }
     }
     //--------------------------------------------------------------------------
+    public void infoTarea()
+    {
+        for (Evento evento : eventos) {
+            if (evento instanceof Tarea)
+            {
+                //evento.laChicha(evento)
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
+    public boolean borrarEvento(int idBorrar, String tipo)
+    {
+        boolean borrado = false;
+        for (int i = 0; i < eventos.size(); i++)
+        {
+            if (tipo.equalsIgnoreCase("recordatorio"))
+            {
+                if (eventos.get(i).getId() == idBorrar && eventos.get(i) instanceof Recordatorio)
+                {
+                    borrado = true;
+                    eventos.remove(i);
+                }
+            }
+            else
+            {
+                if (eventos.get(i).getId() == idBorrar && eventos.get(i) instanceof Tarea)
+                {
+                    borrado = true;
+                    eventos.remove(i);
+                }
+            }
+        }
+        
+        return (borrado);
+    }
+    //--------------------------------------------------------------------------
     public void recordatorio(int id, LocalDate fecha, LocalTime hora)
     {
         eventos.add(new Recordatorio(id, fecha, hora));
@@ -49,4 +85,5 @@ public class Hora
     {
         eventos.add(new Tarea(id, fecha, hora));
     }
-}
+    //--------------------------------------------------------------------------
+}//Class

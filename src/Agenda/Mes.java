@@ -56,12 +56,21 @@ public class Mes
         dias[dia-1].horaRecordatorioTarea(eleccion, numMes, anio);
     }
     //--------------------------------------------------------------------------
-    public void eliminarRecordatorioTarea(int eleccion)
+    public void eliminarRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int dia = 0;
         do {            
             dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
-        //dias[dia-1].quitarRecordatorioTarea(eleccion);
+        if (dias[dia-1] != null)
+        {
+            dias[dia-1].quitarRecordatorioTarea(eleccion);
+        }
+        else
+        {
+            System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
+            Thread.sleep(3000);
+        }
     }
+    //--------------------------------------------------------------------------
 }//Class

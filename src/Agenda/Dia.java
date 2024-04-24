@@ -77,6 +77,24 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    public void infoTareas()
+    {
+        for (Evento evento : todoElDia)
+        {
+            if (evento instanceof Tarea)
+            {
+                //evento.infoEvento(evento);
+            }
+        }
+        for (Hora hora : horas)
+        {
+            if (hora != null)
+            {
+                //hora.infoTarea();
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
     public void horaRecordatorioTarea(int eleccion, int numMes, int anio)
     {
         int h            = -1;
@@ -129,8 +147,59 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    private void eliminarPorId(int idBorrar, String tipo)
+    {
+        boolean borrado = false;
+        for (int i = 0; i < todoElDia.size(); i++)
+        {
+            if (tipo.equalsIgnoreCase("recordatorio"))
+            {
+                if (todoElDia.get(i).getId() == idBorrar && todoElDia.get(i) instanceof Recordatorio)
+                {
+                    borrado = true;
+                    todoElDia.remove(i);
+                }
+            }
+            else
+            {
+                if (todoElDia.get(i).getId() == idBorrar && todoElDia.get(i) instanceof Tarea)
+                {
+                    borrado = true;
+                    todoElDia.remove(i);
+                }
+            }
+        }
+        
+        for (int i = 0; i < horas.length; i++) 
+        {
+            if (horas[i] != null)
+            {
+                borrado = horas[i].borrarEvento(idBorrar, tipo);
+            }
+            
+        }
+        
+        if (!borrado)
+        {
+            System.out.println("No hay un evento " + tipo + " con el id " + idBorrar);
+        }
+    }
+    //--------------------------------------------------------------------------
     public void quitarRecordatorioTarea(int eleccion)
     {
-        int idBorrar = Entrada.leerEntero("Introduce el id para borrar > ");
+        int idBorrar = 0;
+        if (eleccion == 3)
+        {
+            infoRecordatorios();
+            idBorrar = Entrada.leerEntero("Introduce el id del recordatorio a borrar > ");
+            eliminarPorId(idBorrar, "recordatorio");
+        }
+        else
+        {
+            infoTareas();
+            idBorrar = Entrada.leerEntero("Introduce el id de la tarea a borrar > ");
+            eliminarPorId(idBorrar, "tarea");
+        }
     }
+    //--------------------------------------------------------------------------
 }//Class

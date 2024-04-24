@@ -41,4 +41,5 @@ public class Recordatorio extends Evento
             anual = false;
         }
     }
-}
+    //--------------------------------------------------------------------------
+}//Class

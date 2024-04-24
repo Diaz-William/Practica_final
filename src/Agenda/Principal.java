@@ -16,6 +16,8 @@ import java.util.*;
 
 public class Principal 
 {
+    //public enum TipoEvento {TAREA, RECORDATORIO}
+    //--------------------------------------------------------------------------
     private Menu menu                       = new Menu();
     private int anio;
     private ArrayList <Mes> meses           = new ArrayList();
@@ -106,9 +108,9 @@ public class Principal
         {
             case 1  -> crearRecordatorioTarea(respuesta);
             case 2  -> crearRecordatorioTarea(respuesta);
-            /*case 3  -> eventoRecordatorio.borrarRecordatorio();
-            case 4  -> eventoTarea.borrarTarea();
-            case 5  -> imprimirEventosDia();
+            case 3  -> borrarRecordatorioTarea(respuesta);
+            case 4  -> borrarRecordatorioTarea(respuesta);
+            /*case 5  -> imprimirEventosDia();
             case 6  -> imprimirEventosMes();
             case 7  -> imprimirEventosMesDiaHora();
             case 8  -> leerFicheros();
@@ -165,4 +167,5 @@ public class Principal
         mes -= 1;
         meses.get(mes).eliminarRecordatorioTarea(eleccion);
     }
+    //--------------------------------------------------------------------------
 }//Class

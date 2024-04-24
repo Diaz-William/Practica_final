@@ -62,4 +62,5 @@ public class Tarea extends Evento
             urgente = false;
         }
     }
-}
+    //--------------------------------------------------------------------------
+}//Class
