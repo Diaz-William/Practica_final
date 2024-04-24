@@ -46,13 +46,36 @@ public class Dia
     //--------------------------------------------------------------------------
     public void infoEvento()
     {
-        for (Hora hora : horas) {
+        for (Evento evento : todoElDia)
+        {
+            //evento.infoEvento(evento)
+        }
+        for (Hora hora : horas)
+        {
             if (hora != null)
             {
                 //hora.info
             }
         }
     }//infoEventos
+    //--------------------------------------------------------------------------
+    public void infoRecordatorios()
+    {
+        for (Evento evento : todoElDia)
+        {
+            if (evento instanceof Recordatorio)
+            {
+                //evento.infoEvento(evento);
+            }
+        }
+        for (Hora hora : horas)
+        {
+            if (hora != null)
+            {
+                //hora.infoRecordatorio();
+            }
+        }
+    }
     //--------------------------------------------------------------------------
     public void horaRecordatorioTarea(int eleccion, int numMes, int anio)
     {
@@ -93,18 +116,21 @@ public class Dia
             horas[posicion] = new Hora();
             
             if (eleccion == 1)
-                horas[posicion].recordatorio(idEvento, fecha, hora, false);
+                horas[posicion].recordatorio(idEvento, fecha, hora);
             else
-                horas[posicion].tarea(idEvento, fecha, hora, false);
+                horas[posicion].tarea(idEvento, fecha, hora);
         }
         else
         {
             if (eleccion == 1)
-                horas[posicion].recordatorio(idEvento, fecha, hora, true);
+                todoElDia.add(new Recordatorio(idEvento, fecha, hora, true));
             else
-                horas[posicion].tarea(idEvento, fecha, hora, true);
+                todoElDia.add(new Tarea(idEvento, fecha, hora, true));
         }
-
-
     }
-}
+    //--------------------------------------------------------------------------
+    public void quitarRecordatorioTarea(int eleccion)
+    {
+        int idBorrar = Entrada.leerEntero("Introduce el id para borrar > ");
+    }
+}//Class

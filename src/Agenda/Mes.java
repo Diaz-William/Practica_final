@@ -55,4 +55,13 @@ public class Mes
         dias[dia-1] = new Dia(dia);
         dias[dia-1].horaRecordatorioTarea(eleccion, numMes, anio);
     }
-}
+    //--------------------------------------------------------------------------
+    public void eliminarRecordatorioTarea(int eleccion)
+    {
+        int dia = 0;
+        do {            
+            dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
+        } while (dia < 1 || dia > getUltimoDia());
+        //dias[dia-1].quitarRecordatorioTarea(eleccion);
+    }
+}//Class

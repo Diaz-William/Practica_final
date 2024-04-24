@@ -155,4 +155,14 @@ public class Principal
         mes -= 1;
         meses.get(mes).nuevoRecordatorioTarea(eleccion, anio);
     }
-}
+    //--------------------------------------------------------------------------
+    private void borrarRecordatorioTarea(int eleccion)
+    {
+        int mes = 0;
+        do {            
+            mes = Entrada.leerEntero("\s\s\sIntroduzca el numero del mes [1-12] > ");
+        } while (mes < 1 || mes > 12);
+        mes -= 1;
+        meses.get(mes).eliminarRecordatorioTarea(eleccion);
+    }
+}//Class
