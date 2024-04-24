@@ -4,12 +4,12 @@ package Agenda;
 import java.util.Scanner;
 
 public class Entrada {
-    Scanner entrada = new Scanner(System.in);
-    int num;
-    String cadena;
+    private static Scanner entrada = new Scanner(System.in);
+    private static int num;
+    private static String cadena;
     
     //METODOS
-    public int leerEntero(String mensaje)
+    public static int leerEntero(String mensaje)
     {
         num = 0;
         System.out.print(mensaje);
@@ -24,7 +24,7 @@ public class Entrada {
         return num;
     }//leerEntero
     //--------------------------------------------------------------------------
-    public String leerCadena(String mensaje)
+    public static String leerCadena(String mensaje)
     {
         cadena = null;
         System.out.print(mensaje);
@@ -39,7 +39,7 @@ public class Entrada {
         return (cadena);
     }//leerCadena
     //--------------------------------------------------------------------------
-    public void limpiarBuffer()
+    public static void limpiarBuffer()
     {
         entrada.nextLine();
     }

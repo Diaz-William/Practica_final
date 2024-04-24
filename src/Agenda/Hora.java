@@ -1,6 +1,7 @@
 package Agenda;
 
 //API
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -10,13 +11,10 @@ public class Hora
     //--------------------------------------------------------------------------
     //ATRIBUTOS
     private ArrayList <Evento> eventos = new ArrayList();
-    private String hora; 
     
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
-    public Hora(String hora) {
-        this.hora = hora;
-    }
+    public Hora() {}
     
     
     //--------------------------------------------------------------------------
@@ -36,14 +34,26 @@ public class Hora
         }
     }//info
     //--------------------------------------------------------------------------
-    public void recordatorio(LocalTime hora,boolean todoElDia)
+    public void recordatorio(int id, LocalDate fecha, LocalTime hora, boolean todoElDia)
     {
-        //eventos.add(new Recordatorio);
-        System.out.println("Recordatorio creado" + todoElDia);
+        if (todoElDia)
+        {
+            eventos.add(new Recordatorio(id, fecha, hora));
+        }
+        else
+        {
+            eventos.add(new Recordatorio(id, fecha, hora, true));
+        }
     }
-    public void tarea(LocalTime hora,boolean todoElDia)
+    public void tarea(int id, LocalDate fecha, LocalTime hora, boolean todoElDia)
     {
-        //eventos.add(new Tarea);
-        System.out.println("Tarea creada" + todoElDia);
+        if (todoElDia)
+        {
+            eventos.add(new Tarea(id, fecha, hora));
+        }
+        else
+        {
+            eventos.add(new Tarea(id, fecha, hora, true));
+        }
     }
 }

@@ -16,11 +16,9 @@ import java.util.*;
 
 public class Principal 
 {
-    Entrada entrada                 = new Entrada();
-    Menu menu                       = new Menu();
-    //Recordatorio eventoRecordatorio = new Recordatorio();///////////////////////////////
-    //Tarea eventoTarea               = new Tarea();///////////////////////////////
-    ArrayList <Mes> meses           = new ArrayList();
+    private Menu menu                       = new Menu();
+    private int anio;
+    private ArrayList <Mes> meses           = new ArrayList();
     //--------------------------------------------------------------------------
     public static void main(String[] args) throws AWTException, InterruptedException 
     {
@@ -37,7 +35,7 @@ public class Principal
     //--------------------------------------------------------------------------
     private void instanciarMeses()
     {
-        int anio = entrada.leerEntero("Introduce el año > ");
+        anio = Entrada.leerEntero("Introduce el año > ");
         meses.add(new Mes("Enero", 31));
         boolean bisiesto = Year.of(anio).isLeap();
         if (bisiesto) 
@@ -61,6 +59,7 @@ public class Principal
         int respuesta = 0, limite = 4;
         while (respuesta != limite)
         {
+            menu.limpiar();
             menu.menuPrincipal();
             respuesta = eleccion(respuesta,limite);
             switch (respuesta)
@@ -105,7 +104,6 @@ public class Principal
     {
         switch (respuesta)
         {
-            //case 1  -> eventoRecordatorio.crearRecordatorio();
             case 1  -> crearRecordatorioTarea(respuesta);
             case 2  -> crearRecordatorioTarea(respuesta);
             /*case 3  -> eventoRecordatorio.borrarRecordatorio();
@@ -140,11 +138,10 @@ public class Principal
     private int eleccion(int respuesta, int limite)
     {
         do {
-            respuesta = entrada.leerEntero("\n\s\s\sElija una opción > ");
+            respuesta = Entrada.leerEntero("\n\s\s\sElija una opción > ");
             if (respuesta < 1 || respuesta > limite) 
                 System.out.print("\s\s\sOPCIÓN INVÁLIDA [1-"+ limite + "]");
 
-            entrada.limpiarBuffer();
         } while (respuesta <= 0 || respuesta > limite);
         return respuesta;
     }//eleccion
@@ -153,9 +150,9 @@ public class Principal
     {
         int mes = 0;
         do {            
-            mes = entrada.leerEntero("\s\s\sIntroduzca el numero del mes [1-12] > ");
+            mes = Entrada.leerEntero("\s\s\sIntroduzca el numero del mes [1-12] > ");
         } while (mes < 1 || mes > 12);
         mes -= 1;
-        meses.get(mes).recordatorioNuevo(eleccion);
+        meses.get(mes).nuevoRecordatorioTarea(eleccion, anio);
     }
 }

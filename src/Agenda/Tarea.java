@@ -7,8 +7,6 @@ import java.time.temporal.ChronoField;
 
 public class Tarea extends Evento
 {
-    Menu menu = new Menu();
-
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //ATRIBUTOS
@@ -17,11 +15,15 @@ public class Tarea extends Evento
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
 
-    public Tarea(String nombre, String explicacion, LocalDate fecha, LocalTime hora, boolean todoElDia) {
-        super(nombre, explicacion, fecha, hora, todoElDia);
+    public Tarea(int id, LocalDate fecha, LocalTime hora) {
+        super(id, fecha, hora);
+        pedirUrgente();
     }
-    
-    
+
+    public Tarea(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+        super(id, fecha, hora, todoElDia);
+        pedirUrgente();
+    }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
 
@@ -48,4 +50,16 @@ public class Tarea extends Evento
             comprobacion = true;
         return comprobacion;
     }*/
+    private void pedirUrgente()
+    {
+        String res = Entrada.leerCadena("La Tarea es urgente [s,si] > ");
+        if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
+        {
+            urgente = true;
+        }
+        else
+        {
+            urgente = false;
+        }
+    }
 }

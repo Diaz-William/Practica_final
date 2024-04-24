@@ -5,7 +5,6 @@ import java.time.LocalTime;
 
 public class Recordatorio extends Evento
 {
-    Menu menu = new Menu();
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //ATRIBUTOS
@@ -14,11 +13,15 @@ public class Recordatorio extends Evento
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
 
-    public Recordatorio(String nombre, String explicacion, LocalDate fecha, LocalTime hora, boolean todoElDia) {
-        super(nombre, explicacion, fecha, hora, todoElDia);
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora) {
+        super(id, fecha, hora);
+        pedirAnual();
     }
-    
-    
+
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+        super(id, fecha, hora, todoElDia);
+        pedirAnual();
+    }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
 
@@ -26,5 +29,16 @@ public class Recordatorio extends Evento
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS 
-
+    private void pedirAnual()
+    {
+        String res = Entrada.leerCadena("El Recordatorio es anual [s,si] > ");
+        if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
+        {
+            anual = true;
+        }
+        else
+        {
+            anual = false;
+        }
+    }
 }

@@ -9,7 +9,6 @@ public class Mes
     private int numMes;
     private String nombreMes;
     private static int siguienteMes = 1;
-    private Entrada entrada = new Entrada();
     
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
@@ -18,7 +17,6 @@ public class Mes
         this.dias = new Dia[cantidadDias];
         this.numMes = siguienteMes;
         siguienteMes++;
-        instanciarDias();
     }
         
     //--------------------------------------------------------------------------
@@ -31,11 +29,11 @@ public class Mes
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS 
-    private void instanciarDias()
+    /*private void instanciarDias()
     {
         for (int i = 0; i < dias.length; i++) 
             dias[i] = new Dia(i+1);
-    }//instanciarDias
+    }//instanciarDias*/
     //--------------------------------------------------------------------------
     public void eventosDelMes() 
     {
@@ -48,13 +46,13 @@ public class Mes
         }
     }//eventosDelMes
     //--------------------------------------------------------------------------
-    public void recordatorioNuevo(int eleccion)
+    public void nuevoRecordatorioTarea(int eleccion, int anio)
     {
         int dia = 0;
         do {            
-            dia = entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
+            dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
-        dia -= 1;
-        dias[dia].horaRecordatorio(eleccion);
+        dias[dia-1] = new Dia(dia);
+        dias[dia-1].horaRecordatorioTarea(eleccion, numMes, anio);
     }
 }

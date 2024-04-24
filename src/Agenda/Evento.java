@@ -14,18 +14,24 @@ public abstract class Evento
     private String explicacion;
     private LocalDate fecha;
     private LocalTime hora;
-    private boolean todoElDia;
+    private boolean todoElDia = false;
 
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
-    public Evento(String nombre, String explicacion, LocalDate fecha, LocalTime hora, boolean todoElDia) {
-        this.nombre = nombre;
-        this.explicacion = explicacion;
+    public Evento(int id, LocalDate fecha, LocalTime hora) {
+        this.id = id;
+        this.fecha = fecha;
+        this.hora = hora;
+        pedirInfo();
+    }
+    
+    public Evento(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+        this.id = id;
         this.fecha = fecha;
         this.hora = hora;
         this.todoElDia = todoElDia;
+        pedirInfo();
     }
-    
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
 
@@ -33,14 +39,19 @@ public abstract class Evento
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS
-    //El metodo recibe un objeto Evento
+    
+    private void pedirInfo ()
+    {
+        nombre = Entrada.leerCadena("Introduce el nombre del evento > ");
+        Entrada.limpiarBuffer();
+        explicacion = Entrada.leerCadena("Introduce una explcacion del evento > ");
+    }//pedirInfo
+    //--------------------------------------------------------------------------
+    public void infoEvento(Evento e)
+    {
+       //El metodo recibe un objeto Evento
       //*******************************//
      // ari tiene que hacer la chicha //
     //*******************************//
-    public void pedirInfo ()
-    {
-        
-    }//pedirInfo
-    //--------------------------------------------------------------------------
-
+    }
 }
