@@ -105,7 +105,7 @@ public class Dia
         horas[posicion].info();
     }
     //--------------------------------------------------------------------------
-    public void horaRecordatorioTarea(int eleccion, int numMes, int anio)
+    public void horaRecordatorioTarea(int eleccion, int numMes, int anio) throws InterruptedException
     {
         //int h            = -1;
         int op           =  0;

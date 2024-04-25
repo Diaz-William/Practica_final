@@ -79,11 +79,11 @@ public class Hora
         return (borrado);
     }
     //--------------------------------------------------------------------------
-    public void recordatorio(int id, LocalDate fecha, LocalTime hora)
+    public void recordatorio(int id, LocalDate fecha, LocalTime hora) throws InterruptedException
     {
         eventos.add(new Recordatorio(id, fecha, hora));
     }
-    public void tarea(int id, LocalDate fecha, LocalTime hora)
+    public void tarea(int id, LocalDate fecha, LocalTime hora) throws InterruptedException
     {
         eventos.add(new Tarea(id, fecha, hora));
     }

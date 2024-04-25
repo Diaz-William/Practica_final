@@ -54,6 +54,21 @@ public abstract class Evento
       //*******************************//
      // ari tiene que hacer la chicha //
     //*******************************//
+        if (e  instanceof Recordatorio)
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
     //--------------------------------------------------------------------------
+
+    /*@Override
+    public String toString() {
+        return "Evento{" + "id=" + id + ", nombre=" + nombre + ", explicacion=" + explicacion + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + '}';
+    }*/
+    
+    
 }//Class
