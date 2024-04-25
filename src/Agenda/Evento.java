@@ -48,7 +48,7 @@ public abstract class Evento
         explicacion = Entrada.leerCadena("Introduce una explcacion del evento > ");
     }//pedirInfo
     //--------------------------------------------------------------------------
-    public void infoEvento(Evento e)
+    public void infoEvento(Evento e) throws InterruptedException
     {
        //El metodo recibe un objeto Evento
       //*******************************//
@@ -62,6 +62,8 @@ public abstract class Evento
         {
             System.out.println("\"Tarea{\" + \"id=\" + id + \", nombre=\" + nombre + \", explicacion=\" + explicacion + \", fecha=\" + fecha + \", hora=\" + hora + \", todoElDia=\" + todoElDia + '}'");
         }
+        
+        Thread.sleep(3000);
     }
     //--------------------------------------------------------------------------
 

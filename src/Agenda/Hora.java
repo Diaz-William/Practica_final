@@ -24,7 +24,7 @@ public class Hora
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS
-    public void info()
+    public void info() throws InterruptedException
     {
         for (Evento evento : eventos) {
             //evento.laChicha(evento);
@@ -32,7 +32,7 @@ public class Hora
         }
     }//info
     //--------------------------------------------------------------------------
-    public void infoRecordatorio()
+    public void infoRecordatorio() throws InterruptedException
     {
         for (Evento evento : eventos) {
             if (evento instanceof Recordatorio)
@@ -43,7 +43,7 @@ public class Hora
         }
     }
     //--------------------------------------------------------------------------
-    public void infoTarea()
+    public void infoTarea() throws InterruptedException
     {
         for (Evento evento : eventos) {
             if (evento instanceof Tarea)

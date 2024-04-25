@@ -44,7 +44,7 @@ public class Dia
         }
     }//instanciarHoras*/
     //--------------------------------------------------------------------------
-    public void infoEvento()
+    public void infoEvento() throws InterruptedException
     {
         for (Evento evento : todoElDia)
         {
@@ -59,7 +59,7 @@ public class Dia
         }
     }//infoEventos
     //--------------------------------------------------------------------------
-    public void infoRecordatorios()
+    public void infoRecordatorios() throws InterruptedException
     {
         for (Evento evento : todoElDia)
         {
@@ -77,7 +77,7 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
-    public void infoTareas()
+    public void infoTareas() throws InterruptedException
     {
         for (Evento evento : todoElDia)
         {
@@ -205,7 +205,7 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
-    public void quitarRecordatorioTarea(int eleccion)
+    public void quitarRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int idBorrar = 0;
         if (eleccion == 3)
