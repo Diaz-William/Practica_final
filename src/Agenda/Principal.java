@@ -142,7 +142,7 @@ public class Principal
     //--------------------------------------------------------------------------
     private void eleccionMenuMes(int respuesta) throws InterruptedException
     {
-        meses.get(respuesta-1).eventosDelMes();
+        
     }//eleccionMenuMes
     //--------------------------------------------------------------------------
     private int eleccion(int respuesta, int limite)
