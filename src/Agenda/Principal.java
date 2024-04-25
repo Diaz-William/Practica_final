@@ -102,7 +102,7 @@ public class Principal
         }
     }//menu
     //--------------------------------------------------------------------------
-    private void eleccionMenuEventos(int respuesta)
+    private void eleccionMenuEventos(int respuesta) throws InterruptedException
     {
         switch (respuesta)
         {
@@ -158,7 +158,7 @@ public class Principal
         meses.get(mes).nuevoRecordatorioTarea(eleccion, anio);
     }
     //--------------------------------------------------------------------------
-    private void borrarRecordatorioTarea(int eleccion)
+    private void borrarRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int mes = 0;
         do {            
