@@ -148,7 +148,7 @@ public class Principal
         return respuesta;
     }//eleccion
     //--------------------------------------------------------------------------
-    private void crearRecordatorioTarea(int eleccion)
+    private void crearRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int mes = 0;
         do {            

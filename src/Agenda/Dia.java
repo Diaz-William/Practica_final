@@ -48,13 +48,13 @@ public class Dia
     {
         for (Evento evento : todoElDia)
         {
-            //evento.infoEvento(evento)
+            evento.infoEvento(evento);
         }
         for (Hora hora : horas)
         {
             if (hora != null)
             {
-                //hora.info
+                hora.info();
             }
         }
     }//infoEventos
@@ -65,14 +65,14 @@ public class Dia
         {
             if (evento instanceof Recordatorio)
             {
-                //evento.infoEvento(evento);
+                evento.infoEvento(evento);
             }
         }
         for (Hora hora : horas)
         {
             if (hora != null)
             {
-                //hora.infoRecordatorio();
+                hora.infoRecordatorio();
             }
         }
     }
@@ -83,14 +83,14 @@ public class Dia
         {
             if (evento instanceof Tarea)
             {
-                //evento.infoEvento(evento);
+                evento.infoEvento(evento);
             }
         }
         for (Hora hora : horas)
         {
             if (hora != null)
             {
-                //hora.infoTarea();
+                hora.infoTarea();
             }
         }
     }

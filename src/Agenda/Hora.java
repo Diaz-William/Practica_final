@@ -27,7 +27,8 @@ public class Hora
     public void info()
     {
         for (Evento evento : eventos) {
-            //evento.laChicha(evento)
+            //evento.laChicha(evento);
+            evento.infoEvento(evento);
         }
     }//info
     //--------------------------------------------------------------------------
@@ -36,7 +37,8 @@ public class Hora
         for (Evento evento : eventos) {
             if (evento instanceof Recordatorio)
             {
-                //evento.laChicha(evento)
+                //evento.laChicha(evento);
+                evento.infoEvento(evento);
             }
         }
     }
@@ -46,7 +48,8 @@ public class Hora
         for (Evento evento : eventos) {
             if (evento instanceof Tarea)
             {
-                //evento.laChicha(evento)
+                //evento.laChicha(evento);
+                evento.infoEvento(evento);
             }
         }
     }

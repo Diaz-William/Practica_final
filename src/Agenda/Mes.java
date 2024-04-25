@@ -41,12 +41,12 @@ public class Mes
             if (dia != null)
             {
                 System.out.println("Dia " + dia.getNumDia());
-                //dia.infoEvento
+                dia.infoEvento();
             }
         }
     }//eventosDelMes
     //--------------------------------------------------------------------------
-    public void nuevoRecordatorioTarea(int eleccion, int anio)
+    public void nuevoRecordatorioTarea(int eleccion, int anio) throws InterruptedException
     {
         int dia = 0;
         do {            

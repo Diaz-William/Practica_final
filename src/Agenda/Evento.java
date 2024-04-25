@@ -56,11 +56,11 @@ public abstract class Evento
     //*******************************//
         if (e  instanceof Recordatorio)
         {
-            
+            System.out.println("\"Recordatorio{\" + \"id=\" + id + \", nombre=\" + nombre + \", explicacion=\" + explicacion + \", fecha=\" + fecha + \", hora=\" + hora + \", todoElDia=\" + todoElDia + '}'");
         }
         else
         {
-            
+            System.out.println("\"Tarea{\" + \"id=\" + id + \", nombre=\" + nombre + \", explicacion=\" + explicacion + \", fecha=\" + fecha + \", hora=\" + hora + \", todoElDia=\" + todoElDia + '}'");
         }
     }
     //--------------------------------------------------------------------------
