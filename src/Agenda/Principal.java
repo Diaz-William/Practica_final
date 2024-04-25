@@ -95,7 +95,10 @@ public class Principal
                         menu.menuImprimirMes("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL");
                         limite = 13;
                         respuesta = eleccion(respuesta,limite);
-                        eleccionMenuMes(respuesta);
+                        if (respuesta != limite)
+                        {
+                            eleccionMenuMes(respuesta);
+                        }
                     } while (respuesta != limite);
                     break;
                 }
@@ -142,7 +145,8 @@ public class Principal
     //--------------------------------------------------------------------------
     private void eleccionMenuMes(int respuesta) throws InterruptedException
     {
-        
+        Calendario.mostrarCalendario(respuesta, anio);
+        Entrada.esperarEnter();
     }//eleccionMenuMes
     //--------------------------------------------------------------------------
     private int eleccion(int respuesta, int limite)
