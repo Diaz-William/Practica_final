@@ -46,8 +46,9 @@ public class Entrada {
     //--------------------------------------------------------------------------
     public static void esperarEnter()
     {
-        System.out.println("Presiona enter para continuar...");
-        entrada.next();
+        limpiarBuffer();
+        System.out.println("\nPresiona enter para continuar...");
+        String enter = entrada.nextLine();
     }
     //--------------------------------------------------------------------------
 }//Class

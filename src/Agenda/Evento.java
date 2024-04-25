@@ -43,8 +43,9 @@ public abstract class Evento
     
     private void pedirInfo ()
     {
-        nombre = Entrada.leerCadena("Introduce el nombre del evento > ");
         Entrada.limpiarBuffer();
+        nombre = Entrada.leerCadena("Introduce el nombre del evento > ");
+        //Entrada.limpiarBuffer();
         explicacion = Entrada.leerCadena("Introduce una explcacion del evento > ");
     }//pedirInfo
     //--------------------------------------------------------------------------
@@ -56,14 +57,15 @@ public abstract class Evento
     //*******************************//
         if (e  instanceof Recordatorio)
         {
-            System.out.println("\"Recordatorio{\" + \"id=\" + id + \", nombre=\" + nombre + \", explicacion=\" + explicacion + \", fecha=\" + fecha + \", hora=\" + hora + \", todoElDia=\" + todoElDia + '}'");
+            System.out.println("Recordatorio{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", hora = " + hora + ", todoElDia = " + todoElDia + "}");
         }
         else
         {
-            System.out.println("\"Tarea{\" + \"id=\" + id + \", nombre=\" + nombre + \", explicacion=\" + explicacion + \", fecha=\" + fecha + \", hora=\" + hora + \", todoElDia=\" + todoElDia + '}'");
+            System.out.println("Tarea{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", hora = " + hora + ", todoElDia = " + todoElDia + "}");
         }
         
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
+        Entrada.esperarEnter();
     }
     //--------------------------------------------------------------------------
 
