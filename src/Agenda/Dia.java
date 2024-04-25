@@ -100,9 +100,17 @@ public class Dia
         int posicion = 0;
         LocalTime hora = pedirHora();
         posicion = hora.getHour() * 2;
-            if (hora.getMinute() == 30) 
-                posicion += 1;
-        horas[posicion].info();
+        if (hora.getMinute() == 30) 
+            posicion += 1;
+        if (horas[posicion] != null)
+        {
+            horas[posicion].info();
+        }
+        else
+        {
+            System.out.println("No hay eventos a las " + hora);
+            Thread.sleep(3000);
+        }
     }
     //--------------------------------------------------------------------------
     public void horaRecordatorioTarea(int eleccion, int numMes, int anio) throws InterruptedException
@@ -165,7 +173,7 @@ public class Dia
         return (hora);
     }
     //--------------------------------------------------------------------------
-    private void eliminarPorId(int idBorrar, String tipo)
+    private void eliminarPorId(int idBorrar, String tipo) throws InterruptedException
     {
         boolean borrado = false;
         for (int i = 0; i < todoElDia.size(); i++)
@@ -203,6 +211,8 @@ public class Dia
         {
             System.out.println("No hay un evento " + tipo + " con el id " + idBorrar);
         }
+        
+        Thread.sleep(3000);
     }
     //--------------------------------------------------------------------------
     public void quitarRecordatorioTarea(int eleccion) throws InterruptedException

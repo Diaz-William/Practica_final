@@ -140,7 +140,7 @@ public class Principal
         }*/
     }//eleccionMenuContactos
     //--------------------------------------------------------------------------
-    private void eleccionMenuMes(int respuesta)
+    private void eleccionMenuMes(int respuesta) throws InterruptedException
     {
         meses.get(respuesta-1).eventosDelMes();
     }//eleccionMenuMes

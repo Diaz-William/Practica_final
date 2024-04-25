@@ -75,6 +75,8 @@ public class Mes
     //--------------------------------------------------------------------------
     public void verEventos(int eleccion) throws InterruptedException
     {
+        boolean dentro = false;
+        
         if (eleccion == 5 || eleccion == 7)
         {
             int dia = 0;
@@ -86,7 +88,8 @@ public class Mes
                 if (eleccion == 7)
                 {
                     dias[dia-1].infoEventoHora();
-                }else
+                }
+                else
                 {
                     dias[dia-1].infoEvento();
                 }
@@ -99,11 +102,17 @@ public class Mes
         }
         else if (eleccion == 6)
         {
-            for (Dia dia : dias) {
+            for (Dia dia : dias) 
+            {
                 if (dia != null)
                 {
                     dia.infoEvento();
                 }
+            }
+            if (!dentro)
+            {
+                System.out.println("No hay eventos en " + nombreMes);
+                Thread.sleep(3000);
             }
         }
     }
