@@ -95,10 +95,7 @@ public class Principal
                         menu.menuImprimirMes("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL");
                         limite = 13;
                         respuesta = eleccion(respuesta,limite);
-                        if (respuesta != limite)
-                        {
-                            eleccionMenuMes(respuesta);
-                        }
+                        eleccionMenuMes(respuesta);
                     } while (respuesta != limite);
                     break;
                 }
@@ -131,22 +128,33 @@ public class Principal
         }
     }//eleccionMenuEventos
     //--------------------------------------------------------------------------
-    private void eleccionMenuContactos(int respuesta)
+    private void eleccionMenuContactos(int respuesta) throws AWTException, InterruptedException
     {
-        /*switch (respuesta)
+        switch (respuesta)
         {
-            case 1  -> leerContactos();
+            /*case 1  -> leerContactos();
             case 2  -> crearContacto();
             case 3  -> listarContactos();
             case 4  -> buscarContacto();
-            case 5  -> guardarCotacto();
-        }*/
+            case 5  -> guardarCotacto();*/
+            default -> menu();
+        }
     }//eleccionMenuContactos
     //--------------------------------------------------------------------------
-    private void eleccionMenuMes(int respuesta) throws InterruptedException
+    private void eleccionMenuMes(int respuesta) throws InterruptedException, AWTException
     {
-        Calendario.mostrarCalendario(respuesta, anio);
-        Entrada.esperarEnter();
+        switch (respuesta)
+        {
+            case 1,2,4,5,6,7,8,9,10,11,12:
+                Calendario.mostrarCalendario(respuesta, anio);
+                Entrada.esperarEnter();
+                break;
+            default:
+                menu();
+                break;
+        }
+        
+        
     }//eleccionMenuMes
     //--------------------------------------------------------------------------
     private int eleccion(int respuesta, int limite)
