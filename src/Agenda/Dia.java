@@ -95,9 +95,19 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    public void infoEventoHora()
+    {
+        int posicion = 0;
+        LocalTime hora = pedirHora();
+        posicion = hora.getHour() * 2;
+            if (hora.getMinute() == 30) 
+                posicion += 1;
+        horas[posicion].info();
+    }
+    //--------------------------------------------------------------------------
     public void horaRecordatorioTarea(int eleccion, int numMes, int anio)
     {
-        int h            = -1;
+        //int h            = -1;
         int op           =  0;
         int opTipoEvento = -1;
         int posicion     =  0;
@@ -111,23 +121,9 @@ public class Dia
         } while (opTipoEvento < 1 || opTipoEvento > 2);
         if (opTipoEvento == 1) 
         {
-            do
-            {            
-                h = Entrada.leerEntero("\s\s\sIntroduzca la hora [0-23] > ");
-            } while (h < 0 || h > 23);
-            System.out.println("\s\s\s1) " + h + ":00");
-            System.out.println("\s\s\s2) " + h + ":30");
-            op = 0;
-            do
-            {            
-                op = Entrada.leerEntero("\n\s\s\sElija una opcion > ");
-            } while (op < 1 || op > 2);
-            if (op == 1)
-                hora = LocalTime.of(h, 00);
-            else
-                hora = LocalTime.of(h, 30);
+            hora = pedirHora();
             
-            posicion = h * 2;
+            posicion = hora.getHour() * 2;
             if (hora.getMinute() == 30) 
                 posicion += 1;
             
@@ -145,6 +141,28 @@ public class Dia
             else
                 todoElDia.add(new Tarea(idEvento, fecha, hora, true));
         }
+    }
+    //--------------------------------------------------------------------------
+    private LocalTime pedirHora()
+    {
+        int h = 0, op = 0;
+        LocalTime hora = null;
+        do
+        {            
+            h = Entrada.leerEntero("\s\s\sIntroduzca la hora [0-23] > ");
+        } while (h < 0 || h > 23);
+        System.out.println("\s\s\s1) " + h + ":00");
+        System.out.println("\s\s\s2) " + h + ":30");
+        do
+        {            
+            op = Entrada.leerEntero("\n\s\s\sElija una opcion > ");
+        } while (op < 1 || op > 2);
+        if (op == 1)
+            hora = LocalTime.of(h, 00);
+        else
+            hora = LocalTime.of(h, 30);
+            
+        return (hora);
     }
     //--------------------------------------------------------------------------
     private void eliminarPorId(int idBorrar, String tipo)

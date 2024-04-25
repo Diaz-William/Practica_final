@@ -110,10 +110,10 @@ public class Principal
             case 2  -> crearRecordatorioTarea(respuesta);
             case 3  -> borrarRecordatorioTarea(respuesta);
             case 4  -> borrarRecordatorioTarea(respuesta);
-            /*case 5  -> imprimirEventosDia();
-            case 6  -> imprimirEventosMes();
-            case 7  -> imprimirEventosMesDiaHora();
-            case 8  -> leerFicheros();
+            case 5  -> imprimirEventos(respuesta);
+            case 6  -> imprimirEventos(respuesta);
+            case 7  -> imprimirEventos(respuesta);
+            /*case 8  -> leerFicheros();
             case 9  -> guardarFicheroAnio();
             case 10 -> guardarFicheroMes();
             case 11 -> guardarFicheroDia();*/
@@ -171,11 +171,11 @@ public class Principal
     private void imprimirEventos(int eleccion) throws InterruptedException
     {
         int mes = 0;
-        do {            
+        do {
             mes = Entrada.leerEntero("\s\s\sIntroduzca el numero del mes [1-12] > ");
         } while (mes < 1 || mes > 12);
         mes -= 1;
-        //meses.get(mes).
+        meses.get(mes).verEventos(eleccion);
     }
     //--------------------------------------------------------------------------
 }//Class

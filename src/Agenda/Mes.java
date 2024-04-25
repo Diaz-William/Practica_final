@@ -85,10 +85,10 @@ public class Mes
             {
                 if (eleccion == 7)
                 {
-                    //Luego se pedi la hora
+                    dias[dia-1].infoEventoHora();
                 }else
                 {
-                    //dias[dia-1].
+                    dias[dia-1].infoEvento();
                 }
             }
             else
@@ -102,7 +102,7 @@ public class Mes
             for (Dia dia : dias) {
                 if (dia != null)
                 {
-                    //dia.
+                    dia.infoEvento();
                 }
             }
         }
