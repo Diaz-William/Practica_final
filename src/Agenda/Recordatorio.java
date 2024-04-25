@@ -13,12 +13,12 @@ public class Recordatorio extends Evento
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
 
-    public Recordatorio(int id, LocalDate fecha, LocalTime hora) {
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora) throws InterruptedException {
         super(id, fecha, hora);
         pedirAnual();
     }
 
-    public Recordatorio(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) throws InterruptedException {
         super(id, fecha, hora, todoElDia);
         pedirAnual();
     }
@@ -29,17 +29,20 @@ public class Recordatorio extends Evento
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS 
-    private void pedirAnual()
+    private void pedirAnual() throws InterruptedException
     {
         String res = Entrada.leerCadena("El Recordatorio es anual [s,si] > ");
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
             anual = true;
+            System.out.println("El recordatorio es anual");
         }
         else
         {
             anual = false;
+            System.out.println("El recordatorio no es anual");
         }
+        Thread.sleep(3000);//Esperar 3 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

@@ -15,12 +15,12 @@ public class Tarea extends Evento
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
 
-    public Tarea(int id, LocalDate fecha, LocalTime hora) {
+    public Tarea(int id, LocalDate fecha, LocalTime hora) throws InterruptedException {
         super(id, fecha, hora);
         pedirUrgente();
     }
 
-    public Tarea(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+    public Tarea(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) throws InterruptedException {
         super(id, fecha, hora, todoElDia);
         pedirUrgente();
     }
@@ -50,17 +50,20 @@ public class Tarea extends Evento
             comprobacion = true;
         return comprobacion;
     }*/
-    private void pedirUrgente()
+    private void pedirUrgente() throws InterruptedException
     {
         String res = Entrada.leerCadena("La Tarea es urgente [s,si] > ");
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
             urgente = true;
+            System.out.println("La tarea es urgente");
         }
         else
         {
             urgente = false;
+            System.out.println("La tarea no es urgente");
         }
+        Thread.sleep(3000);//Esperar 3 segundos
     }
     //--------------------------------------------------------------------------
 }//Class
