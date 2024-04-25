@@ -68,41 +68,48 @@ public class Principal
             {
                 case 1:
                 {
-                    menu.limpiar();
-                    menu.menuEventos();
-                    limite = 12;
-                    respuesta = eleccion(respuesta,limite);
-                    eleccionMenuEventos(respuesta);
+                    do {                        
+                        menu.limpiar();
+                        menu.menuEventos();
+                        limite = 12;
+                        respuesta = eleccion(respuesta,limite);
+                        eleccionMenuEventos(respuesta);
+                    } while (respuesta != limite);
                     break;
                 }
                 case 2:
                 {
-                    menu.limpiar();
-                    menu.menuContactos();
-                    limite = 6;
-                    respuesta = eleccion(respuesta,limite);
-                    eleccionMenuContactos(respuesta);
+                    do {                        
+                        menu.limpiar();
+                        menu.menuContactos();
+                        limite = 6;
+                        respuesta = eleccion(respuesta,limite);
+                        eleccionMenuContactos(respuesta);
+                    } while (respuesta != limite);
                     break;
                 }
                 case 3:
                 {
-                    menu.limpiar();
-                    menu.menuImprimirMes("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL");
-                    limite = 13;
-                    respuesta = eleccion(respuesta,limite);
-                    eleccionMenuMes(respuesta);
+                    do {                        
+                        menu.limpiar();
+                        menu.menuImprimirMes("--MENÚ DE IMPRESIÓN DE UN CALENDARIO MENSUAL");
+                        limite = 13;
+                        respuesta = eleccion(respuesta,limite);
+                        eleccionMenuMes(respuesta);
+                    } while (respuesta != limite);
                     break;
                 }
                 default : 
                 {
                     menu.limpiar();
+                    System.out.println("¡Gracias!");
                     break;
                 }
             }
         }
     }//menu
     //--------------------------------------------------------------------------
-    private void eleccionMenuEventos(int respuesta) throws InterruptedException
+    private void eleccionMenuEventos(int respuesta) throws InterruptedException, AWTException
     {
         switch (respuesta)
         {
@@ -117,6 +124,7 @@ public class Principal
             case 9  -> guardarFicheroAnio();
             case 10 -> guardarFicheroMes();
             case 11 -> guardarFicheroDia();*/
+            default -> menu();
         }
     }//eleccionMenuEventos
     //--------------------------------------------------------------------------
