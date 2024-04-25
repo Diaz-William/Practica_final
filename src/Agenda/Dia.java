@@ -157,6 +157,7 @@ public class Dia
                 if (todoElDia.get(i).getId() == idBorrar && todoElDia.get(i) instanceof Recordatorio)
                 {
                     borrado = true;
+                    System.out.println("Se ha borrado el " + tipo + " con el id: " + idBorrar);
                     todoElDia.remove(i);
                 }
             }
@@ -165,6 +166,7 @@ public class Dia
                 if (todoElDia.get(i).getId() == idBorrar && todoElDia.get(i) instanceof Tarea)
                 {
                     borrado = true;
+                    System.out.println("Se ha borrado el " + tipo + " con el id: " + idBorrar);
                     todoElDia.remove(i);
                 }
             }
