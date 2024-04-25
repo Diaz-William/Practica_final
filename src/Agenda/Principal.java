@@ -168,4 +168,14 @@ public class Principal
         meses.get(mes).eliminarRecordatorioTarea(eleccion);
     }
     //--------------------------------------------------------------------------
+    private void imprimirEventos(int eleccion) throws InterruptedException
+    {
+        int mes = 0;
+        do {            
+            mes = Entrada.leerEntero("\s\s\sIntroduzca el numero del mes [1-12] > ");
+        } while (mes < 1 || mes > 12);
+        mes -= 1;
+        //meses.get(mes).
+    }
+    //--------------------------------------------------------------------------
 }//Class

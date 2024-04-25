@@ -73,4 +73,39 @@ public class Mes
         }
     }
     //--------------------------------------------------------------------------
+    public void verEventos(int eleccion) throws InterruptedException
+    {
+        if (eleccion == 5 || eleccion == 7)
+        {
+            int dia = 0;
+            do {            
+                dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
+            } while (dia < 1 || dia > getUltimoDia());
+            if (dias[dia-1] != null)
+            {
+                if (eleccion == 7)
+                {
+                    //Luego se pedi la hora
+                }else
+                {
+                    //dias[dia-1].
+                }
+            }
+            else
+            {
+                System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
+                Thread.sleep(3000);
+            }
+        }
+        else if (eleccion == 6)
+        {
+            for (Dia dia : dias) {
+                if (dia != null)
+                {
+                    //dia.
+                }
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
 }//Class
