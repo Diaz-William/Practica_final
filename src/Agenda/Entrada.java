@@ -44,4 +44,10 @@ public class Entrada {
         entrada.nextLine();
     }
     //--------------------------------------------------------------------------
+    public static void esperarEnter()
+    {
+        System.out.println("Presiona enter para continuar...");
+        entrada.next();
+    }
+    //--------------------------------------------------------------------------
 }//Class

@@ -95,7 +95,7 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
-    public void infoEventoHora()
+    public void infoEventoHora() throws InterruptedException
     {
         int posicion = 0;
         LocalTime hora = pedirHora();

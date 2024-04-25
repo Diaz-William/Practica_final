@@ -35,7 +35,7 @@ public class Mes
             dias[i] = new Dia(i+1);
     }//instanciarDias*/
     //--------------------------------------------------------------------------
-    public void eventosDelMes() 
+    public void eventosDelMes() throws InterruptedException 
     {
         for (Dia dia : dias) {
             if (dia != null)
