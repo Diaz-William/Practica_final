@@ -211,9 +211,9 @@ public class Principal
     }//eleccion
     //--------------------------------------------------------------------------
     /**
-     * 
-     * @param eleccion
-     * @throws InterruptedException 
+     * Crea un nuevo recordatorio o tarea.
+     * @param eleccion Un entero que indica el tipo de evento que se desea crear (1.Recordatorio, 2.Tarea).
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
      */
     private void crearRecordatorioTarea(int eleccion) throws InterruptedException
     {
@@ -225,6 +225,11 @@ public class Principal
         meses.get(mes).nuevoRecordatorioTarea(eleccion, anio);
     }
     //--------------------------------------------------------------------------
+    /**
+     * Borra un recordatorio o tarea.
+     * @param eleccion Un entero que indica el tipo de evento que se desea borrar (3.Recordatorio, 4.Tarea).
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     private void borrarRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int mes = 0;
@@ -235,6 +240,11 @@ public class Principal
         meses.get(mes).eliminarRecordatorioTarea(eleccion);
     }
     //--------------------------------------------------------------------------
+    /**
+     * Muestra la información de eventos según la opción seleccionada por el usuario.
+     * @param eleccion Elección para mostrar información (5. Eventos de un día, 6. Eventos de un mes, 7. Evento específico).
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     private void imprimirEventos(int eleccion) throws InterruptedException
     {
         int mes = 0;
