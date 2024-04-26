@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 /**
  * Esta clase representa un día dentro de un calendario. Permite almacenar y gestionar eventos (recordatorios y tareas) para ese día específico.
- * @author
  */
 
 public class Dia 
