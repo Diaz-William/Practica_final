@@ -5,23 +5,28 @@ import java.awt.*;
 import java.io.*;
 import java.time.Year;
 import java.util.*;
-
-/*TO DO:
-    PRINCIPAL -> años, se puede comprobar con el ultimo dia del mes con local date y si es 28 o 29
-    TAREA -> comprobar ultimo dia del mes en la comprobación 
-    GENERAL -> pasar el try catch a entrada
-    ENTRADA -> poner entrada de fecha
-
-*/
-
+/**
+ * Esta clase es el punto de entrada de la aplicación de agenda.
+ * Controla el flujo principal del programa, presentando menús al usuario y
+ * ejecutando las acciones correspondientes a cada opción seleccionada.
+ */
 public class Principal 
 {
-    //public enum TipoEvento {TAREA, RECORDATORIO}
     //--------------------------------------------------------------------------
+    /**Un objeto de la clase Menu que se utiliza para mostrar los menús de la aplicación.*/
     private Menu menu                       = new Menu();
+    /**Un entero que representa el año de la agenda.*/
     private int anio;
+    /**Un ArrayList que almacena objetos de la clase Mes para cada mes del año.*/
     private ArrayList <Mes> meses           = new ArrayList();
     //--------------------------------------------------------------------------
+    /**
+     * El método main de la aplicación de la agenda. Crea un nuevo objeto Principal
+     * y llama al método inicio.
+     * @param args Los argumentos de la línea de comandos (no utilizados en este caso).
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     public static void main(String[] args) throws AWTException, InterruptedException 
     {
         Principal principal = new Principal();
@@ -30,11 +35,19 @@ public class Principal
         
     }//main
     //--------------------------------------------------------------------------
+    /**
+     * Inicializa la agenda.
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     private void inicio() throws AWTException, InterruptedException {
         instanciarMeses();
         menu();
     }//inicio
     //--------------------------------------------------------------------------
+    /**
+     * Crea e instancia los 12 objetos Mes para cada mes del año, almacenándolos en el ArrayList meses.
+     */
     private void instanciarMeses()
     {
         anio = Entrada.leerEntero("Introduce el año > ");
@@ -57,6 +70,11 @@ public class Principal
         meses.add(new Mes("Diciembre", 31));
     }
     //--------------------------------------------------------------------------
+    /**
+     * Muestra el menú principal y gestiona las selecciones del usuario.
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     private void menu() throws AWTException, InterruptedException {
         int respuesta = 0, limite = 4;
         while (respuesta != limite)
@@ -109,7 +127,13 @@ public class Principal
         }
     }//menu
     //--------------------------------------------------------------------------
-    private void eleccionMenuEventos(int respuesta) throws InterruptedException, AWTException
+    /**
+     * Gestiona la selección de opciones del menú de eventos.
+     * @param respuesta La opción seleccionada por el usuario.
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
+    private void eleccionMenuEventos(int respuesta) throws AWTException, InterruptedException
     {
         switch (respuesta)
         {
@@ -128,6 +152,12 @@ public class Principal
         }
     }//eleccionMenuEventos
     //--------------------------------------------------------------------------
+    /**
+     * Gestiona la selección de opciones del menú de contactos.
+     * @param respuesta La opción seleccionada por el usuario.
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     private void eleccionMenuContactos(int respuesta) throws AWTException, InterruptedException
     {
         switch (respuesta)
@@ -141,7 +171,13 @@ public class Principal
         }
     }//eleccionMenuContactos
     //--------------------------------------------------------------------------
-    private void eleccionMenuMes(int respuesta) throws InterruptedException, AWTException
+    /**
+     * Gestiona la selección de opciones del menú y muestra el calendario del mes correspondiente.
+     * @param respuesta La opción seleccionada por el usuario.
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
+    private void eleccionMenuMes(int respuesta) throws AWTException, InterruptedException
     {
         switch (respuesta)
         {
@@ -157,6 +193,12 @@ public class Principal
         
     }//eleccionMenuMes
     //--------------------------------------------------------------------------
+    /**
+     * Solicita al usuario una opción y la valida.
+     * @param respuesta La opción seleccionada por el usuario.
+     * @param limite El límite de opciones permitidas.
+     * @return La opción seleccionada por el usuario.
+     */
     private int eleccion(int respuesta, int limite)
     {
         do {
@@ -168,6 +210,11 @@ public class Principal
         return respuesta;
     }//eleccion
     //--------------------------------------------------------------------------
+    /**
+     * 
+     * @param eleccion
+     * @throws InterruptedException 
+     */
     private void crearRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int mes = 0;

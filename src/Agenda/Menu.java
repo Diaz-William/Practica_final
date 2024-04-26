@@ -3,10 +3,16 @@ package Agenda;
 //API
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Scanner;
 
+/**
+ * Esta clase proporciona la interfaz principal del programa y gestiona los 
+ * distintos menús y opciones disponibles para el usuario.
+ */
 public class Menu
 {
+    /**
+     * Muestra el menú principal con las opciones para acceder a los distintos módulos del programa.
+     */
     public void menuPrincipal()
     {
         System.out.println("--MENÚ PRINCIPAL--");
@@ -16,6 +22,9 @@ public class Menu
         System.out.println("\s\s4)//Salir//");
     }//menuPrincipal
     //--------------------------------------------------------------------------
+    /**
+     * Muestra el menú de eventos y tareas, permitiendo al usuario crear, borrar, imprimir y gestionar eventos.
+     */
     public void menuEventos()
     {
         System.out.println("--MENÚ DE EVENTOS Y TAREAS--");
@@ -33,6 +42,9 @@ public class Menu
         System.out.println("\s\s12)//Salir//");
     }//menuEventos
     //--------------------------------------------------------------------------
+    /**
+     * Muestra el menú de gestión de contactos, permitiendo al usuario leer, crear, listar, buscar y guardar contactos.
+     */
     public void menuContactos()
     {
         System.out.println("--MENÚ DE LISTA DE CONTACTOS");
@@ -44,6 +56,10 @@ public class Menu
         System.out.println("\s\s6)//Salir//");  
     }//menuContactos
     //--------------------------------------------------------------------------
+    /**
+     * Muestra el menú para imprimir los días de un mes como un calendario.
+     * @param mensaje El mensaje a mostrar en la parte superior del menú.
+     */
     public void menuImprimirMes(String mensaje)
     {
         System.out.println(mensaje);
@@ -62,6 +78,11 @@ public class Menu
         System.out.println("\s\s\s\s13)//Salir//");
     }//menuImprimirMes
     //--------------------------------------------------------------------------
+    /**
+     * Limpia la pantalla de la consola.
+     * @throws AWTException Si se produce un error al acceder al robot.
+     * @throws InterruptedException Si ocurre un error mientras se pausa el programa.
+     */
     public void limpiar() throws AWTException, InterruptedException
     {
         Robot limpiar = new Robot();
