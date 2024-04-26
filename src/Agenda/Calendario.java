@@ -10,6 +10,11 @@ import java.util.Locale;
  */
 public class Calendario
 {
+    /**
+     * Genera y muestra un calendario para el mes y año especificados.
+     * @param mes Un entero que representa el mes (1 para enero, 12 para diciembre).
+     * @param anio Un entero que representa el mes (1 para enero, 12 para diciembre).
+     */
     public static void mostrarCalendario(int mes, int anio)
     {
         /*int mes = 12; // Pon el mes que quieras

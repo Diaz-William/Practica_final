@@ -5,21 +5,31 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
 
+/**
+ * Esta clase representa un día dentro de un calendario. Permite almacenar y gestionar eventos (recordatorios y tareas) para ese día específico.
+ * @author
+ */
 
 public class Dia 
 {
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //ATRIBUTOS
+    /**Un array de objetos Hora que representa las 48 horas del día (24 horas x 2 mitades).*/
     private Hora horas[] = new Hora [48];
+    /**Una lista de objetos Evento que representa los eventos que se realizan durante todo el día.*/
     private ArrayList <Evento> todoElDia = new ArrayList();
+    /**Un entero que representa el número del día dentro del mes.*/
     private int numDia;
-    private LocalTime hora;
+    /**Un entero que se utiliza como identificador único para cada evento.*/
     private static int idEvento = 1;
 
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
-
+    /**
+     * Crea un nuevo objeto Dia con el número de día especificado.
+     * @param numDia El número del día.
+     */
     public Dia(int numDia) {
         this.numDia = numDia;
     }
@@ -33,17 +43,12 @@ public class Dia
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
-    //METODOS    
-    /*private void instanciarHoras()
-    {
-        for (int i = 0; i < horas.length; i++) {
-            if (i%2 == 0) 
-                horas[i] = (new Hora(i+":00"));
-            else
-                horas[i] = (new Hora(i+":30"));
-        }
-    }//instanciarHoras*/
+    //METODOS
     //--------------------------------------------------------------------------
+    /**
+     * Muestra información sobre todos los eventos del día, tanto los que tienen una hora específica como los que se realizan durante todo el día.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void infoEvento() throws InterruptedException
     {
         for (Evento evento : todoElDia)
@@ -59,6 +64,10 @@ public class Dia
         }
     }//infoEventos
     //--------------------------------------------------------------------------
+    /**
+     * Muestra información sobre todos los recordatorios del día.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void infoRecordatorios() throws InterruptedException
     {
         for (Evento evento : todoElDia)
@@ -77,6 +86,10 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Muestra información sobre todas las tareas del día.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void infoTareas() throws InterruptedException
     {
         for (Evento evento : todoElDia)
@@ -95,6 +108,10 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Muestra información sobre el evento que se realiza en una hora específica.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void infoEventoHora() throws InterruptedException
     {
         int posicion = 0;
@@ -113,9 +130,16 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Permite crear un nuevo recordatorio o una nueva tarea para una hora específica o para todo el día.
+     * @param eleccion Un entero que indica el tipo de evento que se desea crear (1.Recordatorio, 2.Tarea).
+     * @param numMes Un entero que representa el número del mes.
+     * @param anio Un entero que representa el año.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void horaRecordatorioTarea(int eleccion, int numMes, int anio) throws InterruptedException
     {
-        //int h            = -1;
+        LocalTime hora   = null;
         int op           =  0;
         int opTipoEvento = -1;
         int posicion     =  0;
@@ -151,6 +175,10 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Solicita al usuario que ingrese una hora y la devuelve.
+     * @return La hora ingresada
+     */
     private LocalTime pedirHora()
     {
         int h = 0, op = 0;
@@ -173,6 +201,12 @@ public class Dia
         return (hora);
     }
     //--------------------------------------------------------------------------
+    /**
+     * Elimina un evento (recordatorio o tarea) del día en base a su identificador.
+     * @param idBorrar Identificador del evento (recordatorio o tarea) a borrar.
+     * @param tipo Tipo del evento (recordatorio o tarea) a borrar.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     private void eliminarPorId(int idBorrar, String tipo) throws InterruptedException
     {
         boolean borrado = false;
@@ -215,6 +249,11 @@ public class Dia
         Thread.sleep(3000);
     }
     //--------------------------------------------------------------------------
+    /**
+     * Permite eliminar un recordatorio o una tarea existente.
+     * @param eleccion Un entero que indica el tipo de evento que se desea crear (1.Recordatorio, 2.Tarea).
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void quitarRecordatorioTarea(int eleccion) throws InterruptedException
     {
         int idBorrar = 0;
