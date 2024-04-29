@@ -97,7 +97,10 @@ public abstract class Evento
     {
        //El metodo recibe un objeto Evento
       //*******************************//
-     // ari tiene que hacer la chicha //
+     /**
+      * En el ternario de hora comprobamos si tiene o no
+      * En el ternario de todoElDia realizamos el mismo proceso
+      */
     //*******************************//
         if (e  instanceof Recordatorio && e.isTodoElDia())
         {
