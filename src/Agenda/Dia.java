@@ -160,7 +160,10 @@ public class Dia
             if (hora.getMinute() == 30) 
                 posicion += 1;
             
-            horas[posicion] = new Hora();
+            if (horas[posicion] == null)
+            {
+                horas[posicion] = new Hora();
+            }
             
             if (eleccion == 1)
                 horas[posicion].recordatorio(idEvento, fecha, hora);

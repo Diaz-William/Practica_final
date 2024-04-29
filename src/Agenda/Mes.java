@@ -72,8 +72,15 @@ public class Mes
         do {            
             dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
-        dias[dia-1] = new Dia(dia);
-        dias[dia-1].horaRecordatorioTarea(eleccion, numMes, anio);
+        if (dias[dia-1] == null)
+        {
+            dias[dia-1] = new Dia(dia);
+            dias[dia-1].horaRecordatorioTarea(eleccion, numMes, anio);
+        }
+        else
+        {
+            dias[dia-1].horaRecordatorioTarea(eleccion, numMes, anio);
+        }
     }
     //--------------------------------------------------------------------------
     /**
