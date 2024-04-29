@@ -96,22 +96,21 @@ public abstract class Evento
     public void infoEvento(Evento e) throws InterruptedException
     {
        //El metodo recibe un objeto Evento
-      //*******************************//
+
      /**
       * En el ternario de hora comprobamos si tiene o no
       * En el ternario de todoElDia realizamos el mismo proceso
       */
-    //*******************************//
-        if (e  instanceof Recordatorio && e.isTodoElDia())
+        if (e  instanceof Recordatorio)
         {
-            System.out.println("Recordatorio\s\s" + id + " " + nombre);
-            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
+            System.out.println("Recordatorio\s\s" + id + "  " + nombre);
+            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
             System.out.println("\t\t" + explicacion);
         }
         
         if (e instanceof Tarea && e.isTodoElDia())
         {
-            System.out.println("Tarea\s\s" + id + " " + nombre);
+            System.out.println("Tarea\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
             System.out.println("\t\t" + explicacion);
         }

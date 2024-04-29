@@ -155,11 +155,11 @@ public class Dia
         if (opTipoEvento == 1) 
         {
             hora = pedirHora();
-            
             posicion = hora.getHour() * 2;
             if (hora.getMinute() == 30) 
+            {
                 posicion += 1;
-            
+            }
             System.out.println(eleccion);
 
             if (horas[posicion] == null)
@@ -170,10 +170,11 @@ public class Dia
             {
                 horas[posicion].recordatorio(idEvento, fecha, hora);
                 System.out.println("aaaa");
-            }
-                
+            }                
             else
+            {
                 horas[posicion].tarea(idEvento, fecha, hora);
+            }
         }
         else
         {
