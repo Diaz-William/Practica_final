@@ -101,20 +101,16 @@ public abstract class Evento
     //*******************************//
         if (e  instanceof Recordatorio && e.isTodoElDia())
         {
-            System.out.println("Recordatorio{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", todoElDia = " + todoElDia + "}");
-        }
-        else
-        {
-            System.out.println("Recordatorio{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", hora = " + hora + ", todoElDia = " + todoElDia + "}");
+            System.out.println("Recordatorio\t\t" + id + " " + nombre);
+            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
+            System.out.println("\t\t" + explicacion);
         }
         
         if (e instanceof Tarea && e.isTodoElDia())
         {
-            System.out.println("Tarea{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", todoElDia = " + todoElDia + "}");
-        }
-        else
-        {
-            System.out.println("Tarea{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", hora = " + hora + ", todoElDia = " + todoElDia + "}");
+            System.out.println("Tarea\t\t" + id + " " + nombre);
+            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
+            System.out.println("\t\t" + explicacion);
         }
         Entrada.esperarEnter();
     }
