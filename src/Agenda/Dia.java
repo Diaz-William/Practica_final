@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Esta clase representa un día dentro de un calendario. Permite almacenar y gestionar eventos (recordatorios y tareas) para ese día específico.
  */
 
-public class Dia 
+public class Dia
 {
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ public class Dia
                 hora.info();
             }
         }
-        Entrada.limpiarBuffer();
+        //Entrada.limpiarBuffer();
         Entrada.esperarEnter();
     }//infoEventos
     //--------------------------------------------------------------------------
@@ -160,13 +160,18 @@ public class Dia
             if (hora.getMinute() == 30) 
                 posicion += 1;
             
+            System.out.println(eleccion);
+
             if (horas[posicion] == null)
             {
                 horas[posicion] = new Hora();
             }
-            
             if (eleccion == 1)
+            {
                 horas[posicion].recordatorio(idEvento, fecha, hora);
+                System.out.println("aaaa");
+            }
+                
             else
                 horas[posicion].tarea(idEvento, fecha, hora);
         }
@@ -177,6 +182,7 @@ public class Dia
             else
                 todoElDia.add(new Tarea(idEvento, fecha, hora, true));
         }
+        
     }
     //--------------------------------------------------------------------------
     /**

@@ -21,11 +21,16 @@ public class Hora
     
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
+
+    @Override
+    public String toString() {return "Hora{" + "hora=" + hora + ", eventos=" + eventos + '}';
+}
+    
     /**
      * Crea una nueva instancia de la clase Hora.
      */
-    public Hora() {}
-    
+    public Hora() {
+    }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
 

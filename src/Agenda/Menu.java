@@ -164,6 +164,7 @@ entrada del usuario.
     private void eleccionMenuEventos(int respuesta) throws AWTException, 
 InterruptedException
     {
+        
         switch (respuesta)
         {
             case 1  -> principal.crearRecordatorioTarea(respuesta);
