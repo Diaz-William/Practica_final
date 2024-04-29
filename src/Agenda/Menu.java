@@ -17,8 +17,9 @@ módulos del programa.
      */
     Principal principal;
 
-    public Menu(Principal principal) {
+    public Menu(Principal principal) throws AWTException, InterruptedException {
         this.principal = principal;
+        menu();
     }//menu
     
 //--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ módulos del programa.
         System.out.println("\s\s2)Menú de Lista de contactos");
         System.out.println("\s\s3)Menú para Imprimir los días de calendario de un mes");
         System.out.println("\s\s4)//Salir//");
+        
     }//menuPrincipal
     
 //--------------------------------------------------------------------------

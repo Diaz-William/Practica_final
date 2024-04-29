@@ -61,6 +61,8 @@ public class Dia
                 hora.info();
             }
         }
+        Entrada.limpiarBuffer();
+        Entrada.esperarEnter();
     }//infoEventos
     //--------------------------------------------------------------------------
     /**

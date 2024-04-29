@@ -137,6 +137,7 @@ public class Mes
                 if (dia != null)
                 {
                     dia.infoEvento();
+                    dentro = true;
                 }
             }
             if (!dentro)

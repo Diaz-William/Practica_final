@@ -104,18 +104,18 @@ public abstract class Evento
     //*******************************//
         if (e  instanceof Recordatorio && e.isTodoElDia())
         {
-            System.out.println("Recordatorio\t\t" + id + " " + nombre);
+            System.out.println("Recordatorio\s\s" + id + " " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
             System.out.println("\t\t" + explicacion);
         }
         
         if (e instanceof Tarea && e.isTodoElDia())
         {
-            System.out.println("Tarea\t\t" + id + " " + nombre);
+            System.out.println("Tarea\s\s" + id + " " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
             System.out.println("\t\t" + explicacion);
         }
-        Entrada.esperarEnter();
+        //Entrada.esperarEnter();
     }
     //--------------------------------------------------------------------------
 }//Class
