@@ -63,8 +63,14 @@ public abstract class Evento
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
-    public int getId() {
+    public int getId()
+    {
         return id;
+    }
+    //--------------------------------------------------------------------------
+    public boolean isTodoElDia()
+    {
+        return todoElDia;
     }
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
@@ -93,9 +99,18 @@ public abstract class Evento
       //*******************************//
      // ari tiene que hacer la chicha //
     //*******************************//
-        if (e  instanceof Recordatorio)
+        if (e  instanceof Recordatorio && e.isTodoElDia())
+        {
+            System.out.println("Recordatorio{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", todoElDia = " + todoElDia + "}");
+        }
+        else
         {
             System.out.println("Recordatorio{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", hora = " + hora + ", todoElDia = " + todoElDia + "}");
+        }
+        
+        if (e instanceof Tarea && e.isTodoElDia())
+        {
+            System.out.println("Tarea{id = " + id + ", nombre = " + nombre + ", explicacion = " + explicacion + ", fecha = " + fecha + ", todoElDia = " + todoElDia + "}");
         }
         else
         {
