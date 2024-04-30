@@ -150,7 +150,7 @@ entrada del usuario.
 //--------------------------------------------------------------------------
     public void guardarFicheroAnio() throws InterruptedException
     {
-        String nombreFichero ="c:/" +  LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-YYYY_HH:mm:ss"))+ ".dat";        
+        String nombreFichero ="c:/" +  LocalDateTime.now().format(DateTimeFormatter.ofPattern("d_MM_YYYY_HH:mm:ss"))+ ".dat";        
         FileWriter fw = null;
         try 
         {
