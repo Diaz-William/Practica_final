@@ -107,7 +107,6 @@ public abstract class Evento
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
             System.out.println("\t\t" + explicacion);
         }
-        
         if (e instanceof Tarea && e.isTodoElDia())
         {
             System.out.println("Tarea\s\s" + id + "  " + nombre);

@@ -160,7 +160,6 @@ public class Dia
             {
                 posicion += 1;
             }
-            System.out.println(eleccion);
 
             if (horas[posicion] == null)
             {
