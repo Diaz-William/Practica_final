@@ -148,9 +148,9 @@ entrada del usuario.
         meses.get(mes).verEventos(eleccion);
     }
 //--------------------------------------------------------------------------
-    public void guardarFicheroAnio()
+    public void guardarFicheroAnio() throws InterruptedException
     {
-        String nombreFichero = LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-YYYY_HH:mm:ss"))+ ".dat";        
+        String nombreFichero ="c:/" +  LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-YYYY_HH:mm:ss"))+ ".dat";        
         FileWriter fw = null;
         try 
         {
@@ -159,11 +159,8 @@ entrada del usuario.
             salida.println("AÑO : " + anio);
             for (Mes mes : meses) {
                 salida.println("MES : " + mes);
-                salida.println 
+                salida.println(mes.ficheroDia()) ;
             }
-            
-            
-
             salida.flush();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());                                                                   

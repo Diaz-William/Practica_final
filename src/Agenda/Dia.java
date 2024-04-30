@@ -288,5 +288,6 @@ public class Dia
             {
                 lineaFichero = hora.ficheroHora(lineaFichero);
             }
+        return lineaFichero;
     }
 }//Class
