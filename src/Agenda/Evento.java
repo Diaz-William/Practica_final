@@ -101,7 +101,7 @@ public abstract class Evento
       * En el ternario de hora comprobamos si tiene o no
       * En el ternario de todoElDia realizamos el mismo proceso
       */
-        if (e  instanceof Recordatorio)
+        if (e  instanceof Recordatorio && e.isTodoElDia())
         {
             System.out.println("Recordatorio\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
