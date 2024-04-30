@@ -182,7 +182,7 @@ public class Dia
             else
                 todoElDia.add(new Tarea(idEvento, fecha, hora, true));
         }
-        
+        idEvento++;
     }
     //--------------------------------------------------------------------------
     /**
@@ -281,4 +281,12 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
+    public String ficheroHora(String lineaFichero) throws InterruptedException
+    {
+        for (Hora hora : horas)
+            if (hora != null)
+            {
+                lineaFichero = hora.ficheroHora(lineaFichero);
+            }
+    }
 }//Class

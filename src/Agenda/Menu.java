@@ -174,9 +174,9 @@ InterruptedException
             case 5  -> principal.imprimirEventos(respuesta);
             case 6  -> principal.imprimirEventos(respuesta);
             case 7  -> principal.imprimirEventos(respuesta);
-            /*case 8  -> principal.leerFicheros();
+            /*case 8  -> principal.leerFicheros();*/
             case 9  -> principal.guardarFicheroAnio();
-            case 10 -> principal.guardarFicheroMes();
+            /*case 10 -> principal.guardarFicheroMes();
             case 11 -> principal.guardarFicheroDia();*/
             default -> menu();
         }

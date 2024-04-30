@@ -73,6 +73,22 @@ public abstract class Evento
         return todoElDia;
     }
     //--------------------------------------------------------------------------
+    public String getNombre() {
+        return nombre;
+    }
+    //--------------------------------------------------------------------------
+    public String getExplicacion() {
+        return explicacion;
+    }
+    //--------------------------------------------------------------------------
+    public LocalDate getFecha() {
+        return fecha;
+    }
+    //--------------------------------------------------------------------------
+    public LocalTime getHora() {
+        return hora;
+    }
+    //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS
     /**
@@ -116,4 +132,16 @@ public abstract class Evento
         //Entrada.esperarEnter();
     }
     //--------------------------------------------------------------------------
+    public String ficheroEvento(Evento e,String lineaFichero)
+    {
+        if (e  instanceof Recordatorio)
+        {
+            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+explicacion+"|"+(todoElDia ? "Todo el dia" : ""));
+        }
+        if (e instanceof Tarea)
+        {
+            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+explicacion+"|"+(todoElDia ? "Todo el dia" : ""));
+        }
+        return lineaFichero;
+    }
 }//Class

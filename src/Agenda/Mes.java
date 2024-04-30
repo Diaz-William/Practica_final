@@ -155,4 +155,15 @@ public class Mes
         }
     }
     //--------------------------------------------------------------------------
+    public void ficheroDia() throws InterruptedException
+    {
+        String lineaFichero = "";
+        for (Dia dia : dias) 
+        {
+            if (dia != null)
+            {
+                dia.ficheroHora(lineaFichero);
+            }
+        }
+    }
 }//Class

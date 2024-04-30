@@ -139,4 +139,19 @@ public class Hora
         eventos.add(new Tarea(id, fecha, hora));
     }
     //--------------------------------------------------------------------------
+    public void ficheroHora(String lineaFichero) throws InterruptedException
+    {
+        for (Evento evento : eventos) {
+            if (evento instanceof Recordatorio)
+            {
+                //evento.laChicha(evento);
+                lineaFichero = evento.ficheroEvento(evento, lineaFichero);
+            }
+            if (evento instanceof Tarea)
+            {
+                //evento.laChicha(evento);
+                lineaFichero = evento.ficheroEvento(evento,lineaFichero);
+            }
+        }
+    }
 }//Class

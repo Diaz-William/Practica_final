@@ -3,7 +3,9 @@ package Agenda;
 //API
 import java.awt.*;
 import java.io.*;
+import java.time.LocalDateTime;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 /**
  * Esta clase es el punto de entrada de la aplicación de agenda.
@@ -145,6 +147,37 @@ entrada del usuario.
         mes -= 1;
         meses.get(mes).verEventos(eleccion);
     }
-    
 //--------------------------------------------------------------------------
+    public void guardarFicheroAnio()
+    {
+        String nombreFichero = LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-YYYY_HH:mm:ss"))+ ".dat";        
+        FileWriter fw = null;
+        try 
+        {
+            fw = new FileWriter(nombreFichero,true);
+            PrintWriter salida = new PrintWriter(fw);
+            salida.println("AÑO : " + anio);
+            for (Mes mes : meses) {
+                salida.println("MES : " + mes);
+                salida.println 
+            }
+            
+            
+
+            salida.flush();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());                                                                   
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            try {
+                if (fw != null) 
+                    fw.close();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());                                                               
+            }
+        }
+    }
 }//Class
