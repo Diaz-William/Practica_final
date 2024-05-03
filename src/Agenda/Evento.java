@@ -118,23 +118,16 @@ public abstract class Evento
       * En el ternario de hora comprobamos si tiene o no
       * En el ternario de todoElDia realizamos el mismo proceso
       */
-        if (e  instanceof Recordatorio && e.isTodoElDia())
+        if (e  instanceof Recordatorio)
         {
-            /*
             System.out.println("Recordatorio\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
-            */
-            System.out.println("Recordatorio{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + "}");
         }
-        if (e instanceof Tarea && e.isTodoElDia())
+        if (e instanceof Tarea)
         {
-            /*
             System.out.println("Tarea\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
-            */
-            System.out.println("Tarea{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + "}");
         }
-        //Entrada.esperarEnter();
     }
     //--------------------------------------------------------------------------
     public String ficheroEvento(Evento e,String lineaFichero)
@@ -150,10 +143,10 @@ public abstract class Evento
         return lineaFichero;
     }
     //--------------------------------------------------------------------------
-
+    /*
     @Override
     public String toString() {
         return "Evento{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + '}';
     }
-    
+    */
 }//Class
