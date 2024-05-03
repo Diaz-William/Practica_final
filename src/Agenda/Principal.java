@@ -121,14 +121,6 @@ public class Principal
         meses.get(mes).verEventos(eleccion);
     }
     //--------------------------------------------------------------------------
-    private void vaciarAgendaAnio()
-    {
-        for (int i = 0; i < meses.size(); i++)
-        {
-            meses.get(i).vaciarAgendaMes();
-        }
-    }
-    //--------------------------------------------------------------------------
     public void leerFicheroAnio() throws InterruptedException
     {
         Entrada.limpiarBuffer();
@@ -175,6 +167,14 @@ public class Principal
         }
     }//leerFicheroAnio
     //--------------------------------------------------------------------------
+    private void vaciarAgendaAnio()
+    {
+        for (int i = 0; i < meses.size(); i++)
+        {
+            meses.get(i).vaciarAgendaMes();
+        }
+    }
+    //--------------------------------------------------------------------------
     private void guardarEventos(String informacion) throws InterruptedException
     {
         LocalDate fecha;
@@ -203,9 +203,6 @@ public class Principal
         FileWriter fw = null;
         try 
         {
-            System.out.println(nombreFichero);
-            System.out.println(ruta);
-            Entrada.esperarEnter();
             fw = new FileWriter(ruta,true);
             PrintWriter salida = new PrintWriter(fw);
             salida.println("AÑO : " + anio);
