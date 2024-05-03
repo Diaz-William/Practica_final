@@ -2,13 +2,11 @@ package Agenda;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.Month;
 import java.util.ArrayList;
 
 /**
  * Esta clase representa un día dentro de un calendario. Permite almacenar y gestionar eventos (recordatorios y tareas) para ese día específico.
  */
-
 public class Dia
 {
     //--------------------------------------------------------------------------
@@ -22,7 +20,6 @@ public class Dia
     private int numDia;
     /**Un entero que se utiliza como identificador único para cada evento.*/
     private static int idEvento = 1;
-
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
     /**
@@ -32,14 +29,11 @@ public class Dia
     public Dia(int numDia) {
         this.numDia = numDia;
     }
-    
-    
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
     public int getNumDia() {
         return numDia;
     }
-
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS
@@ -158,7 +152,7 @@ public class Dia
             posicion = hora.getHour() * 2;
             if (hora.getMinute() == 30) 
             {
-                posicion += 1;
+                posicion ++;
             }
 
             if (horas[posicion] == null)
@@ -290,4 +284,19 @@ public class Dia
             }
         return lineaFichero;
     }
+    //--------------------------------------------------------------------------
+    public void aniadorEventosDia(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional)
+    {
+        int posicion = hora.getHour() * 2 + (hora.getMinute() == 30 ? 1 : 0);
+        if (horas[posicion] == null)
+        {
+            horas[posicion] = new Hora();
+            horas[posicion].aniadirEventoHora(fecha, hora, tipo, nombre, adicional);
+        }
+        else
+        {
+            horas[posicion].aniadirEventoHora(fecha, hora, tipo, nombre, adicional);
+        }
+    }
+    //--------------------------------------------------------------------------
 }//Class

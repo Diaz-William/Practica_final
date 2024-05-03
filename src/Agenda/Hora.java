@@ -18,7 +18,6 @@ public class Hora
     LocalTime hora;
     /**Una lista ArrayList de objetos Evento que almacena los eventos asociados a esta hora.*/
     private ArrayList <Evento> eventos = new ArrayList();
-    
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
 
@@ -155,4 +154,10 @@ public class Hora
         }
         return lineaFichero;
     }
+    //--------------------------------------------------------------------------
+    public void aniadirEventoHora(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional)
+    {
+        
+    }
+    //--------------------------------------------------------------------------
 }//Class

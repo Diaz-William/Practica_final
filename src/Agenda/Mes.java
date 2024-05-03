@@ -1,5 +1,8 @@
 package Agenda;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 /**
  * Esta clase representa un mes dentro de un año. Almacena información sobre 
  * el nombre del mes, el número del mes y un array del objeto Dia del tamaño 
@@ -167,4 +170,20 @@ public class Mes
         }
         return lineaFichero;
     }
+    //--------------------------------------------------------------------------
+    public void aniadirEventoMes(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional)
+    {
+        int dia = fecha.getDayOfMonth();
+        
+        if (dias[dia-1] == null)
+        {
+            dias[dia-1] = new Dia(dia);
+            dias[dia-1].aniadorEventosDia(fecha, hora, tipo, nombre, adicional);
+        }
+        else
+        {
+            dias[dia-1].aniadorEventosDia(fecha, hora, tipo, nombre, adicional);
+        }
+    }
+    //--------------------------------------------------------------------------
 }//Class

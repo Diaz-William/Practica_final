@@ -1,4 +1,3 @@
-
 package Agenda;
 
 //API
@@ -12,8 +11,7 @@ import java.awt.event.*;
 public class Menu
 {
     /**
-     * Muestra el menú principal con las opciones para acceder a los distintos 
-módulos del programa.
+     * Muestra el menú principal con las opciones para acceder a los distintos módulos del programa.
      */
     Principal principal;
 
@@ -22,7 +20,7 @@ módulos del programa.
         menu();
     }//menu
     
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     private void menuPrincipal()
     {
         System.out.println("--MENÚ PRINCIPAL--");
@@ -33,10 +31,9 @@ módulos del programa.
         
     }//menuPrincipal
     
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
-     * Muestra el menú de eventos y tareas, permitiendo al usuario crear, 
-borrar, imprimir y gestionar eventos.
+     * Muestra el menú de eventos y tareas, permitiendo al usuario crear, borrar, imprimir y gestionar eventos.
      */
     private void menuEventos()
     {
@@ -54,11 +51,9 @@ borrar, imprimir y gestionar eventos.
         System.out.println("\s\s11)Guardar en un fichero de texto todos los eventos de un día");
         System.out.println("\s\s12)//Salir//");
     }//menuEventos
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
-     * Muestra el menú de gestión de contactos, permitiendo al usuario leer, 
-crear, listar, buscar y guardar contactos.
+     * Muestra el menú de gestión de contactos, permitiendo al usuario leer, crear, listar, buscar y guardar contactos.
      */
     private void menuContactos()
     {
@@ -70,8 +65,7 @@ crear, listar, buscar y guardar contactos.
         System.out.println("\s\s5)Guardar contactos");
         System.out.println("\s\s6)//Salir//");  
     }//menuContactos
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
      * Muestra el menú para imprimir los días de un mes como un calendario.
      * @param mensaje El mensaje a mostrar en la parte superior del menú.
@@ -93,13 +87,11 @@ crear, listar, buscar y guardar contactos.
         System.out.println("\s\s\s\s12)DICIEMBRE");
         System.out.println("\s\s\s\s13)//Salir//");
     }//menuImprimirMes
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
      * Muestra el menú principal y gestiona las selecciones del usuario.
      * @throws AWTException Si ocurre un error al borrar la consola.
-     * @throws InterruptedException Si ocurre un error mientras se espera la 
-entrada del usuario.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
      */
     private void menu() throws AWTException, InterruptedException {
         int respuesta = 0, limite = 4;
@@ -152,17 +144,14 @@ entrada del usuario.
             }
         }
     }//menu
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
      * Gestiona la selección de opciones del menú de eventos.
      * @param respuesta La opción seleccionada por el usuario.
      * @throws AWTException Si ocurre un error al borrar la consola.
-     * @throws InterruptedException Si ocurre un error mientras se espera la 
-entrada del usuario.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
      */
-    private void eleccionMenuEventos(int respuesta) throws AWTException, 
-InterruptedException
+    private void eleccionMenuEventos(int respuesta) throws AWTException, InterruptedException
     {
         
         switch (respuesta)
@@ -174,24 +163,21 @@ InterruptedException
             case 5  -> principal.imprimirEventos(respuesta);
             case 6  -> principal.imprimirEventos(respuesta);
             case 7  -> principal.imprimirEventos(respuesta);
-            /*case 8  -> principal.leerFicheros();*/
+            case 8  -> principal.leerFicheroAnio();
             case 9  -> principal.guardarFicheroAnio();
             /*case 10 -> principal.guardarFicheroMes();
             case 11 -> principal.guardarFicheroDia();*/
             default -> menu();
         }
     }//eleccionMenuEventos
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
      * Gestiona la selección de opciones del menú de contactos.
      * @param respuesta La opción seleccionada por el usuario.
      * @throws AWTException Si ocurre un error al borrar la consola.
-     * @throws InterruptedException Si ocurre un error mientras se espera la 
-entrada del usuario.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
      */
-    private void eleccionMenuContactos(int respuesta) throws AWTException, 
-InterruptedException
+    private void eleccionMenuContactos(int respuesta) throws AWTException, InterruptedException
     {
         switch (respuesta)
         {
@@ -203,18 +189,14 @@ InterruptedException
             default -> menu();
         }
     }//eleccionMenuContactos
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
-     * Gestiona la selección de opciones del menú y muestra el calendario del 
-mes correspondiente.
+     * Gestiona la selección de opciones del menú y muestra el calendario del mes correspondiente.
      * @param respuesta La opción seleccionada por el usuario.
      * @throws AWTException Si ocurre un error al borrar la consola.
-     * @throws InterruptedException Si ocurre un error mientras se espera la 
-entrada del usuario.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
      */
-    private void eleccionMenuMes(int respuesta) throws AWTException, 
-InterruptedException
+    private void eleccionMenuMes(int respuesta) throws AWTException, InterruptedException
     {
         switch (respuesta)
         {
@@ -226,11 +208,8 @@ InterruptedException
                 menu();
                 break;
         }
-        
-        
     }//eleccionMenuMes
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
      * Solicita al usuario una opción y la valida.
      * @param respuesta La opción seleccionada por el usuario.
@@ -247,13 +226,11 @@ InterruptedException
         } while (respuesta <= 0 || respuesta > limite);
         return respuesta;
     }//eleccion
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     /**
      * Limpia la pantalla de la consola.
      * @throws AWTException Si se produce un error al acceder al robot.
-     * @throws InterruptedException Si ocurre un error mientras se pausa el 
-programa.
+     * @throws InterruptedException Si ocurre un error mientras se pausa el programa.
      */
     public void limpiar() throws AWTException, InterruptedException
     {
@@ -265,6 +242,5 @@ programa.
         Thread.sleep(500);
         
     }//limpiar
-    
-//--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }//Class

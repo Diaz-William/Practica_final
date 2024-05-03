@@ -19,8 +19,6 @@ public abstract class Evento
     private int id;
     /**Una cadena de texto que representa el nombre del evento.*/
     private String nombre;
-    /**Una cadena de texto que describe el evento en detalle.*/
-    private String explicacion;
     /**Un objeto LocalDate que representa la fecha del evento.*/
     private LocalDate fecha;
     /**Un objeto LocalTime que representa la hora del evento (o la hora de inicio si es todo el día).*/
@@ -77,10 +75,6 @@ public abstract class Evento
         return nombre;
     }
     //--------------------------------------------------------------------------
-    public String getExplicacion() {
-        return explicacion;
-    }
-    //--------------------------------------------------------------------------
     public LocalDate getFecha() {
         return fecha;
     }
@@ -98,8 +92,6 @@ public abstract class Evento
     {
         Entrada.limpiarBuffer();
         nombre = Entrada.leerCadena("Introduce el nombre del evento > ");
-        //Entrada.limpiarBuffer();
-        explicacion = Entrada.leerCadena("Introduce una explcacion del evento > ");
     }//pedirInfo
     //--------------------------------------------------------------------------
     /**
@@ -121,13 +113,11 @@ public abstract class Evento
         {
             System.out.println("Recordatorio\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
-            System.out.println("\t\t" + explicacion);
         }
         if (e instanceof Tarea && e.isTodoElDia())
         {
             System.out.println("Tarea\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
-            System.out.println("\t\t" + explicacion);
         }
         //Entrada.esperarEnter();
     }
@@ -136,11 +126,11 @@ public abstract class Evento
     {
         if (e  instanceof Recordatorio)
         {
-            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+explicacion+"|"+(todoElDia ? "Todo el dia" : ""));
+            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+(todoElDia ? "Todo el dia" : ""));
         }
         if (e instanceof Tarea)
         {
-            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+explicacion+"|"+(todoElDia ? "Todo el dia" : ""));
+            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+(todoElDia ? "Todo el dia" : ""));
         }
         return lineaFichero;
     }
