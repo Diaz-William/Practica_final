@@ -120,13 +120,19 @@ public abstract class Evento
       */
         if (e  instanceof Recordatorio && e.isTodoElDia())
         {
+            /*
             System.out.println("Recordatorio\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
+            */
+            System.out.println("Recordatorio{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + "}");
         }
         if (e instanceof Tarea && e.isTodoElDia())
         {
+            /*
             System.out.println("Tarea\s\s" + id + "  " + nombre);
             System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
+            */
+            System.out.println("Tarea{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + "}");
         }
         //Entrada.esperarEnter();
     }
@@ -144,4 +150,10 @@ public abstract class Evento
         return lineaFichero;
     }
     //--------------------------------------------------------------------------
+
+    @Override
+    public String toString() {
+        return "Evento{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + '}';
+    }
+    
 }//Class

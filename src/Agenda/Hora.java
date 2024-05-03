@@ -159,7 +159,11 @@ public class Hora
     {
         if (tipo.equalsIgnoreCase("Tarea"))
         {
-            eventos.add(new Tarea(id, fecha, hora));
+            eventos.add(new Tarea(id, fecha, hora, nombre, adicional));
+        }
+        else
+        {
+            eventos.add(new Recordatorio(id, fecha, hora, nombre, adicional));
         }
     }
     //--------------------------------------------------------------------------

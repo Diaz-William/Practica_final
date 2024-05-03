@@ -171,7 +171,7 @@ public class Mes
         return lineaFichero;
     }
     //--------------------------------------------------------------------------
-    public void aniadirEventoMes(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional)
+    public void aniadirEventoMes(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional) throws InterruptedException
     {
         int dia = fecha.getDayOfMonth();
         

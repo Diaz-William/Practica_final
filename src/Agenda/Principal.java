@@ -121,17 +121,21 @@ public class Principal
         meses.get(mes).verEventos(eleccion);
     }
     //--------------------------------------------------------------------------
-    public void leerFicheroAnio()
+    public void leerFicheroAnio() throws InterruptedException
     {
         FileReader fr = null;
         String informacion = "";
+        int cont = 0;
+        
         try {
             fr = new FileReader("c:/ficheros/eventos.dat");
             BufferedReader entrada = new BufferedReader(fr);
             do {
                 informacion = entrada.readLine();
-                if (informacion != null) {
+                if (informacion != null)
+                {
                     guardarEventos(informacion);
+                    cont++;
                 }
             } while (informacion != null);
             entrada.close();
@@ -147,6 +151,7 @@ public class Principal
                 if (fr != null) {
                     fr.close();
                 }
+                System.out.println("Se han creado " + cont + " eventos.");
                 Entrada.esperarEnter();
             } catch (IOException e) {
                 System.out.println(e.getMessage());                                                               
@@ -154,7 +159,7 @@ public class Principal
         }
     }
     //--------------------------------------------------------------------------
-    private void guardarEventos(String informacion)
+    private void guardarEventos(String informacion) throws InterruptedException
     {
         LocalDate fecha;
         LocalTime hora;
