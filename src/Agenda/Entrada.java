@@ -69,7 +69,7 @@ public class Entrada {
     public static void esperarEnter()
     {
         limpiarBuffer();
-        System.out.println("\nPresiona enter para continuar...");
+        System.out.print("\nPresiona enter para continuar...");
         String enter = entrada.nextLine();
     }
     //--------------------------------------------------------------------------
