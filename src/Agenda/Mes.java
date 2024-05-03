@@ -186,4 +186,16 @@ public class Mes
         }
     }
     //--------------------------------------------------------------------------
+    public void vaciarAgendaMes()
+    {
+        for (int i = 0; i < dias.length; i++)
+        {
+            if (dias[i] != null)
+            {
+                dias[i].vaciarAgendaDia();
+                dias[i] = null;
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
 }//Class

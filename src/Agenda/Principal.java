@@ -121,43 +121,59 @@ public class Principal
         meses.get(mes).verEventos(eleccion);
     }
     //--------------------------------------------------------------------------
-    public void leerFicheroAnio() throws InterruptedException
+    private void vaciarAgendaAnio()
     {
-        FileReader fr = null;
-        String informacion = "";
-        int cont = 0;
-        
-        try {
-            fr = new FileReader("c:/ficheros/eventos.dat");
-            BufferedReader entrada = new BufferedReader(fr);
-            do {
-                informacion = entrada.readLine();
-                if (informacion != null)
-                {
-                    guardarEventos(informacion);
-                    cont++;
-                }
-            } while (informacion != null);
-            entrada.close();
-        } 
-        catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-        catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        finally {
-            try {
-                if (fr != null) {
-                    fr.close();
-                }
-                System.out.println("Se han creado " + cont + " eventos.");
-                Entrada.esperarEnter();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());                                                               
-            }
+        for (int i = 0; i < meses.size(); i++)
+        {
+            meses.get(i).vaciarAgendaMes();
         }
     }
+    //--------------------------------------------------------------------------
+    public void leerFicheroAnio() throws InterruptedException
+    {
+        Entrada.limpiarBuffer();
+        System.out.println("Si lees el fichero los eventos guardados seran borrados");
+        String res = Entrada.leerCadena("¿Quieres continuar? [s,si/n,no] > ");
+        
+        if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
+        {
+            vaciarAgendaAnio();
+            FileReader fr = null;
+            String informacion = "";
+            int cont = 0;
+
+            try {
+                fr = new FileReader("c:/ficheros/eventos.dat");
+                BufferedReader entrada = new BufferedReader(fr);
+                do {
+                    informacion = entrada.readLine();
+                    if (informacion != null)
+                    {
+                        guardarEventos(informacion);
+                        cont++;
+                    }
+                } while (informacion != null);
+                entrada.close();
+            } 
+            catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+            }
+            catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            finally {
+                try {
+                    if (fr != null) {
+                        fr.close();
+                    }
+                    System.out.println("Se han creado " + cont + " eventos.");
+                    Entrada.esperarEnter();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());                                                               
+                }
+            }
+        }
+    }//leerFicheroAnio
     //--------------------------------------------------------------------------
     private void guardarEventos(String informacion) throws InterruptedException
     {
@@ -182,14 +198,15 @@ public class Principal
     //--------------------------------------------------------------------------
     public void guardarFicheroAnio() throws InterruptedException
     {
-        //Crear archivos en c:/ está bloqueado
-        String nombreFichero ="c:/ficheros/" +  LocalDateTime.now().format(DateTimeFormatter.ofPattern("d_MM_YYYY_HH_mm_ss"))+ ".dat";        
+        String nombreFichero ="agenda_" +  LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-YYYY_HH-mm-ss"))+ ".dat";        
+        String ruta = "c:/ficheros/" + nombreFichero;
         FileWriter fw = null;
         try 
         {
             System.out.println(nombreFichero);
+            System.out.println(ruta);
             Entrada.esperarEnter();
-            fw = new FileWriter(nombreFichero,true);
+            fw = new FileWriter(ruta,true);
             PrintWriter salida = new PrintWriter(fw);
             salida.println("AÑO : " + anio);
             for (Mes mes : meses) {

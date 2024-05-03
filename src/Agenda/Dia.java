@@ -300,4 +300,21 @@ public class Dia
         idEvento++;
     }
     //--------------------------------------------------------------------------
+    public void vaciarAgendaDia()
+    {
+        for (int i = 0; i < todoElDia.size(); i++)
+        {
+            todoElDia.remove(i);
+        }
+        
+        for (int i = 0; i < horas.length; i++)
+        {
+            if (horas[i] != null)
+            {
+                horas[i].vaciarAgendaHora();
+                horas[i] = null;
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
 }//Class

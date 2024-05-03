@@ -126,7 +126,7 @@ public abstract class Evento
         if (e instanceof Tarea)
         {
             System.out.println("Tarea\s\s" + id + "  " + nombre);
-            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora" : "") + (todoElDia ? "Todo el dia" : ""));
+            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
         }
     }
     //--------------------------------------------------------------------------
