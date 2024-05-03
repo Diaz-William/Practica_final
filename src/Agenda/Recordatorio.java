@@ -14,7 +14,6 @@ public class Recordatorio extends Evento
     //ATRIBUTOS
     /**Un booleano que indica si el recordatorio es anual (true) o no anual (false).*/
     private boolean anual;
-
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
     /**
@@ -24,7 +23,8 @@ public class Recordatorio extends Evento
      * @param hora La hora del recordatorio.
      * @throws InterruptedException Si ocurre un error de E/S.
      */
-    public Recordatorio(int id, LocalDate fecha, LocalTime hora) throws InterruptedException {
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora) throws InterruptedException
+    {
         super(id, fecha, hora);
         pedirAnual();
     }
@@ -37,9 +37,16 @@ public class Recordatorio extends Evento
      * @param todoElDia Un booleano que indica si el recordatorio es para todo el día (true).
      * @throws InterruptedException Si ocurre un error de E/S.
      */
-    public Recordatorio(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) throws InterruptedException {
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) throws InterruptedException
+    {
         super(id, fecha, hora, todoElDia);
         pedirAnual();
+    }
+    //--------------------------------------------------------------------------
+    public Recordatorio(int id, LocalDate fecha, LocalTime hora, String nombre, boolean anual) throws InterruptedException
+    {
+        super(id, fecha, hora, nombre);
+        this.anual = anual;
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 

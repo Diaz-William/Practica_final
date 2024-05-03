@@ -16,7 +16,6 @@ public class Tarea extends Evento
     //ATRIBUTOS
     /**Un booleano que indica si la tarea es urgente (true) o no urgente (false).*/
     private boolean urgente;
-
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
     /**
@@ -26,7 +25,8 @@ public class Tarea extends Evento
      * @param hora La hora de la tarea.
      * @throws InterruptedException Si ocurre un error de E/S.
      */
-    public Tarea(int id, LocalDate fecha, LocalTime hora) throws InterruptedException {
+    public Tarea(int id, LocalDate fecha, LocalTime hora) throws InterruptedException
+    {
         super(id, fecha, hora);
         pedirUrgente();
     }
@@ -39,9 +39,16 @@ public class Tarea extends Evento
      * @param todoElDia Un booleano que indica si la tarea es para todo el día (true).
      * @throws InterruptedException Si ocurre un error de E/S.
      */
-    public Tarea(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) throws InterruptedException {
+    public Tarea(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) throws InterruptedException
+    {
         super(id, fecha, hora, todoElDia);
         pedirUrgente();
+    }
+    //--------------------------------------------------------------------------
+    public Tarea(int id, LocalDate fecha, LocalTime hora, String nombre, boolean urgente) throws InterruptedException
+    {
+        super(id, fecha, hora, nombre);
+        this.urgente = urgente;
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 

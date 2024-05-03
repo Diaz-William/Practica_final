@@ -25,7 +25,6 @@ public abstract class Evento
     private LocalTime hora;
     /** Un booleano que indica si el evento se realiza durante todo el día (true) o a una hora específica (false).*/
     private boolean todoElDia = false;
-
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
     /**
@@ -36,7 +35,8 @@ public abstract class Evento
      * @param fecha La fecha del evento.
      * @param hora La hora del evento.
      */
-    public Evento(int id, LocalDate fecha, LocalTime hora) {
+    public Evento(int id, LocalDate fecha, LocalTime hora)
+    {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
@@ -52,12 +52,21 @@ public abstract class Evento
      * @param hora La hora del evento.
      * @param todoElDia Un indicador de si el evento abarca todo el día.
      */
-    public Evento(int id, LocalDate fecha, LocalTime hora, boolean todoElDia) {
+    public Evento(int id, LocalDate fecha, LocalTime hora, boolean todoElDia)
+    {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
         this.todoElDia = todoElDia;
         pedirInfo();
+    }
+    //--------------------------------------------------------------------------
+    public Evento(int id, LocalDate fecha, LocalTime hora, String nombre)
+    {
+        this.id = id;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.nombre = nombre;
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
@@ -134,4 +143,5 @@ public abstract class Evento
         }
         return lineaFichero;
     }
+    //--------------------------------------------------------------------------
 }//Class

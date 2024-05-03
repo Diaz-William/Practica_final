@@ -285,18 +285,19 @@ public class Dia
         return lineaFichero;
     }
     //--------------------------------------------------------------------------
-    public void aniadorEventosDia(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional)
+    public void aniadorEventosDia(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional) throws InterruptedException
     {
         int posicion = hora.getHour() * 2 + (hora.getMinute() == 30 ? 1 : 0);
         if (horas[posicion] == null)
         {
             horas[posicion] = new Hora();
-            horas[posicion].aniadirEventoHora(fecha, hora, tipo, nombre, adicional);
+            horas[posicion].aniadirEventoHora(idEvento, fecha, hora, tipo, nombre, adicional);
         }
         else
         {
-            horas[posicion].aniadirEventoHora(fecha, hora, tipo, nombre, adicional);
+            horas[posicion].aniadirEventoHora(idEvento, fecha, hora, tipo, nombre, adicional);
         }
+        idEvento++;
     }
     //--------------------------------------------------------------------------
 }//Class

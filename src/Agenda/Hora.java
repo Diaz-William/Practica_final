@@ -155,9 +155,12 @@ public class Hora
         return lineaFichero;
     }
     //--------------------------------------------------------------------------
-    public void aniadirEventoHora(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional)
+    public void aniadirEventoHora(int id, LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional) throws InterruptedException
     {
-        
+        if (tipo.equalsIgnoreCase("Tarea"))
+        {
+            eventos.add(new Tarea(id, fecha, hora));
+        }
     }
     //--------------------------------------------------------------------------
 }//Class
