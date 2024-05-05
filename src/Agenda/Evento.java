@@ -61,11 +61,35 @@ public abstract class Evento
         pedirInfo();
     }
     //--------------------------------------------------------------------------
+    /**
+     * Crea un nuevo evento con los atributos especificados.
+     *
+     * @param id El ID del evento.
+     * @param fecha La fecha del evento.
+     * @param hora La hora del evento.
+     * @param nombre El nombre del evento.
+     */
     public Evento(int id, LocalDate fecha, LocalTime hora, String nombre)
     {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;
+        this.nombre = nombre;
+    }
+    //--------------------------------------------------------------------------
+    /**
+     * Crea un nuevo evento con los atributos especificados y el indicador de todo el día.
+     *
+     * @param id El ID del evento.
+     * @param fecha La fecha del evento.
+     * @param todoElDia Un indicador de si el evento abarca todo el día.
+     * @param nombre El nombre del evento.
+     */
+    public Evento(int id, LocalDate fecha, boolean todoElDia, String nombre)
+    {
+        this.id = id;
+        this.fecha = fecha;
+        this.todoElDia = todoElDia;
         this.nombre = nombre;
     }
     //--------------------------------------------------------------------------
@@ -75,7 +99,7 @@ public abstract class Evento
         return id;
     }
     //--------------------------------------------------------------------------
-    public boolean isTodoElDia()
+    public boolean getTodoElDia()
     {
         return todoElDia;
     }
@@ -130,23 +154,4 @@ public abstract class Evento
         }
     }
     //--------------------------------------------------------------------------
-    public String ficheroEvento(Evento e,String lineaFichero)
-    {
-        if (e  instanceof Recordatorio)
-        {
-            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+(todoElDia ? "Todo el dia" : ""));
-        }
-        if (e instanceof Tarea)
-        {
-            lineaFichero = (id +"|"+fecha+"|"+(hora != null ? "Hora" : "-")+"|"+nombre+"|"+(todoElDia ? "Todo el dia" : ""));
-        }
-        return lineaFichero;
-    }
-    //--------------------------------------------------------------------------
-    /*
-    @Override
-    public String toString() {
-        return "Evento{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", hora=" + hora + ", todoElDia=" + todoElDia + '}';
-    }
-    */
 }//Class

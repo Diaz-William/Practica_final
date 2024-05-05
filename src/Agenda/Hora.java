@@ -2,8 +2,9 @@ package Agenda;
 
 //API
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Esta clase representa una hora específica dentro de un día. 
@@ -133,23 +134,17 @@ public class Hora
         eventos.add(new Tarea(id, fecha, hora));
     }
     //--------------------------------------------------------------------------
-    public String ficheroHora(String lineaFichero) throws InterruptedException
-    {
-        for (Evento evento : eventos) {
-            if (evento instanceof Recordatorio)
-            {
-                //evento.laChicha(evento);
-                lineaFichero = evento.ficheroEvento(evento, lineaFichero);
-            }
-            if (evento instanceof Tarea)
-            {
-                //evento.laChicha(evento);
-                lineaFichero = evento.ficheroEvento(evento,lineaFichero);
-            }
-        }
-        return lineaFichero;
-    }
-    //--------------------------------------------------------------------------
+    /**
+     * Añade un nuevo evento (tarea o recordatorio) a la lista de eventos asociados a esta hora.
+     *
+     * @param id El ID del evento.
+     * @param fecha La fecha del evento.
+     * @param hora La hora del evento.
+     * @param tipo El tipo de evento ("Tarea" o "Recordatorio").
+     * @param nombre El nombre del evento.
+     * @param adicional Un indicador adicional (urgencia o anualidad).
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public void aniadirEventoHora(int id, LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional) throws InterruptedException
     {
         if (tipo.equalsIgnoreCase("Tarea"))
@@ -162,11 +157,41 @@ public class Hora
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Vacía la lista de eventos asociados a esta hora.
+     */
     public void vaciarAgendaHora()
     {
-        for (int i = 0; i < eventos.size(); i++)
+        eventos.clear();
+        /*for (int i = 0; i < eventos.size(); i++)
         {
             eventos.remove(i);
+        }*/
+    }
+    //--------------------------------------------------------------------------
+    /**
+     * Guarda la información de los eventos asociados a esta hora en un archivo.
+     * 
+     * @param eleccion La opción seleccionada por el usuario.
+     * @param nombreMes El nombre del mes.
+     * @param dia El número del día.
+     */
+    public void guardarFicheroHora(int eleccion, String nombreMes, int dia)
+    {
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
+        String info = null;
+        for (Evento e : eventos) {
+            if (e instanceof Tarea)
+            {
+                info = e.getFecha().format(formatoFecha) + "|" + e.getHora().format(formatoHora) + "|Tarea|" + e.getNombre() + "|" + (((Tarea)e).getUrgente() ? "Urgente" : "No urgente");
+                GuardarEvento.guardarFichero(info, eleccion, nombreMes, dia);
+            }
+            else
+            {
+                info = e.getFecha().format(formatoFecha) + "|" + e.getHora().format(formatoHora) + "|Recordatorio|" + e.getNombre() + "|" + (((Recordatorio)e).getAnual() ? "Anual" : "No anual");
+                GuardarEvento.guardarFichero(info, eleccion, nombreMes, dia);
+            }
         }
     }
     //--------------------------------------------------------------------------

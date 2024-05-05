@@ -45,14 +45,43 @@ public class Tarea extends Evento
         pedirUrgente();
     }
     //--------------------------------------------------------------------------
+    /**
+     * Crea una nueva tarea con los atributos especificados y el nombre, y el estado de urgencia de la tarea.
+     *
+     * @param id El id de la tarea.
+     * @param fecha La fecha de la tarea.
+     * @param hora La hora de la tarea.
+     * @param nombre El nombre de la tarea.
+     * @param urgente El estado de urgencia de la tarea.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public Tarea(int id, LocalDate fecha, LocalTime hora, String nombre, boolean urgente) throws InterruptedException
     {
         super(id, fecha, hora, nombre);
         this.urgente = urgente;
     }
     //--------------------------------------------------------------------------
+    /**
+     * Crea una nueva tarea con los atributos especificados y el nombre, y el estado de urgencia de la tarea.
+     *
+     * @param id El id de la tarea.
+     * @param fecha La fecha de la tarea.
+     * @param todoElDia Un booleano que indica si la tarea es para todo el día (true).
+     * @param nombre El nombre de la tarea.
+     * @param urgente El estado de urgencia de la tarea.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
+    public Tarea(int id, LocalDate fecha, boolean todoElDia, String nombre, boolean urgente) throws InterruptedException
+    {
+        super(id, fecha, todoElDia, nombre);
+        this.urgente = urgente;
+    }
+    //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
-
+    public boolean getUrgente()
+    {
+        return urgente;
+    }
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------

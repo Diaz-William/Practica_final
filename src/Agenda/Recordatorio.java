@@ -43,15 +43,44 @@ public class Recordatorio extends Evento
         pedirAnual();
     }
     //--------------------------------------------------------------------------
+    /**
+     * Crea un nuevo recordatorio con los atributos especificados y el nombre, y el estado de anualidad del recordatorio.
+     *
+     * @param id El id del recordatorio.
+     * @param fecha La fecha del recordatorio.
+     * @param hora La hora del recordatorio.
+     * @param nombre El nombre del recordatorio.
+     * @param anual El estado de anualidad del recordatorio.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
     public Recordatorio(int id, LocalDate fecha, LocalTime hora, String nombre, boolean anual) throws InterruptedException
     {
         super(id, fecha, hora, nombre);
         this.anual = anual;
     }
     //--------------------------------------------------------------------------
+    /**
+     * Crea un nuevo recordatorio con los atributos especificados y el nombre, y el estado de anualidad del recordatorio.
+     *
+     * @param id El id del recordatorio.
+     * @param fecha La fecha del recordatorio.
+     * @param todoElDia Un booleano que indica si el recordatorio es para todo el día (true).
+     * @param nombre El nombre del recordatorio.
+     * @param anual El estado de anualidad del recordatorio.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
+    public Recordatorio(int id, LocalDate fecha, boolean todoElDia, String nombre, boolean anual) throws InterruptedException
+    {
+        super(id, fecha, todoElDia, nombre);
+        this.anual = anual;
+    }
+    //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
-
-
+    public boolean getAnual()
+    {
+        return anual;
+    }
+    
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS

@@ -1,8 +1,12 @@
 package Agenda;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Esta clase representa un día dentro de un calendario. Permite almacenar y gestionar eventos (recordatorios y tareas) para ese día específico.
@@ -275,37 +279,56 @@ public class Dia
         }
     }
     //--------------------------------------------------------------------------
-    public String ficheroHora(String lineaFichero) throws InterruptedException
+    /**
+     * Añade un evento al día, ya sea una tarea o recordatorio, en una hora específica o para todo el día.
+     * @param fecha La fehca del evento.
+     * @param hora La hora del evento.
+     * @param tipo El tipo del evento (Tarea o Recordatorio).
+     * @param nombre El nombre del evento.
+     * @param adicional Indica si el evento es urgente o anul dependiendo si es una Tarea o Recordatorio.
+     * @param todoElDia Indica si el evento es para todo el día.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
+    public void aniadorEventosDia(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional, boolean todoElDia) throws InterruptedException
     {
-        for (Hora hora : horas)
-            if (hora != null)
-            {
-                lineaFichero = hora.ficheroHora(lineaFichero);
-            }
-        return lineaFichero;
-    }
-    //--------------------------------------------------------------------------
-    public void aniadorEventosDia(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional) throws InterruptedException
-    {
-        int posicion = hora.getHour() * 2 + (hora.getMinute() == 30 ? 1 : 0);
-        if (horas[posicion] == null)
+        if (todoElDia)
         {
-            horas[posicion] = new Hora();
-            horas[posicion].aniadirEventoHora(idEvento, fecha, hora, tipo, nombre, adicional);
+            if (tipo.equalsIgnoreCase("Tarea"))
+            {
+                this.todoElDia.add(new Recordatorio(idEvento, fecha, todoElDia, nombre, adicional));
+            }
+            else
+            {
+                this.todoElDia.add(new Tarea(idEvento, fecha, todoElDia, nombre, adicional));
+            }
         }
         else
         {
-            horas[posicion].aniadirEventoHora(idEvento, fecha, hora, tipo, nombre, adicional);
+            int posicion = hora.getHour() * 2 + (hora.getMinute() == 30 ? 1 : 0);
+            if (horas[posicion] == null)
+            {
+                horas[posicion] = new Hora();
+                horas[posicion].aniadirEventoHora(idEvento, fecha, hora, tipo, nombre, adicional);
+            }
+            else
+            {
+                horas[posicion].aniadirEventoHora(idEvento, fecha, hora, tipo, nombre, adicional);
+            }
         }
         idEvento++;
     }
     //--------------------------------------------------------------------------
+    /**
+     * Vacía la agenda del día, eliminando todos los eventos programados.
+     */
     public void vaciarAgendaDia()
     {
+        /*
         for (int i = 0; i < todoElDia.size(); i++)
         {
             todoElDia.remove(i);
-        }
+        }*/
+        todoElDia.clear();
         
         for (int i = 0; i < horas.length; i++)
         {
@@ -313,6 +336,39 @@ public class Dia
             {
                 horas[i].vaciarAgendaHora();
                 horas[i] = null;
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
+    /**
+     * Guarda la información de los eventos del día en un fichero.
+     * 
+     * @param eleccion La opción seleccionada por el usuario.
+     * @param nombreMes El nombre del mes.
+     */
+    public void guardarFicheroDia(int eleccion, String nombreMes)
+    {
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String info = null;
+        
+        for (Evento e : todoElDia)
+        {
+            if (e instanceof Tarea)
+            {
+                info = e.getFecha().format(formatoFecha) + "|DIA|Tarea|" + e.getNombre() + "|" + (((Tarea)e).getUrgente() ? "Urgente" : "No urgente");
+                GuardarEvento.guardarFichero(info, eleccion, nombreMes, numDia);
+            }
+            else
+            {
+                info = e.getFecha().format(formatoFecha) + "|DIA|Recordatorio|" + e.getNombre() + "|" + (((Recordatorio)e).getAnual() ? "Anual" : "No anual");
+                GuardarEvento.guardarFichero(info, eleccion, nombreMes, numDia);
+            }
+        }
+        
+        for (Hora hora : horas) {
+            if (hora != null)
+            {
+                hora.guardarFicheroHora(eleccion, nombreMes, numDia);
             }
         }
     }

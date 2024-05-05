@@ -164,9 +164,9 @@ public class Menu
             case 6  -> principal.imprimirEventos(respuesta);
             case 7  -> principal.imprimirEventos(respuesta);
             case 8  -> principal.leerFicheroAnio();
-            case 9  -> principal.guardarFicheroAnio();
-            /*case 10 -> principal.guardarFicheroMes();
-            case 11 -> principal.guardarFicheroDia();*/
+            case 9  -> principal.guardarFicheroAnio(respuesta);
+            case 10 -> principal.guardarFicheroAnio(respuesta);
+            case 11 -> principal.guardarFicheroAnio(respuesta);
             default -> menu();
         }
     }//eleccionMenuEventos
@@ -181,11 +181,11 @@ public class Menu
     {
         switch (respuesta)
         {
-            /*case 1  -> principal.leerContactos();
+            case 1  -> principal.leerContactos();
             case 2  -> principal.crearContacto();
             case 3  -> principal.listarContactos();
             case 4  -> principal.buscarContacto();
-            case 5  -> principal.guardarCotacto();*/
+            case 5  -> principal.guardarFicheroContactos();
             default -> menu();
         }
     }//eleccionMenuContactos

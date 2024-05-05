@@ -12,14 +12,11 @@ public class Calendario
 {
     /**
      * Genera y muestra un calendario para el mes y año especificados.
-     * @param mes Un entero que representa el mes (1 para enero, 12 para diciembre).
-     * @param anio Un entero que representa el mes (1 para enero, 12 para diciembre).
+     * @param mes Un entero que representa el mes.
+     * @param anio Un entero que representa el año.
      */
     public static void mostrarCalendario(int mes, int anio)
     {
-        /*int mes = 12; // Pon el mes que quieras
-        int anio = 2024; // Pon el año que quieras*/
-
         // Crear un objeto GregorianCalendar para el primer día del mes
         GregorianCalendar fecha = new GregorianCalendar(anio, mes - 1, 1);
         // Crear un objeto GregorianCalendar para el primer día del siguiente mes

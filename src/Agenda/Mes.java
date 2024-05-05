@@ -43,7 +43,11 @@ public class Mes
     {
         return (dias.length);
     }
-
+    //--------------------------------------------------------------------------
+    public String getNombreMes()
+    {
+        return nombreMes;
+    }
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
     //METODOS 
@@ -158,34 +162,35 @@ public class Mes
         }
     }
     //--------------------------------------------------------------------------
-    public String ficheroDia() throws InterruptedException
-    {
-        String lineaFichero = "";
-        for (Dia dia : dias) 
-        {
-            if (dia != null)
-            {
-                dia.ficheroHora(lineaFichero);
-            }
-        }
-        return lineaFichero;
-    }
-    //--------------------------------------------------------------------------
-    public void aniadirEventoMes(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional) throws InterruptedException
+    /**
+     * Añade un nuevo evento (recordatorio o tarea) a la lista de eventos asociados a un día específico del mes.
+     *
+     * @param fecha La fecha del evento.
+     * @param hora La hora del evento.
+     * @param tipo El tipo del evento (Tarea o Recordatorio).
+     * @param nombre El nombre del evento.
+     * @param adicional Indica si el evento es urgente o anul dependiendo si es una Tarea o Recordatorio.
+     * @param todoElDia Indica si el evento ocupa todo el día.
+     * @throws InterruptedException Si ocurre un error de E/S.
+     */
+    public void aniadirEventoMes(LocalDate fecha, LocalTime hora, String tipo, String nombre, boolean adicional, boolean todoElDia) throws InterruptedException
     {
         int dia = fecha.getDayOfMonth();
         
         if (dias[dia-1] == null)
         {
             dias[dia-1] = new Dia(dia);
-            dias[dia-1].aniadorEventosDia(fecha, hora, tipo, nombre, adicional);
+            dias[dia-1].aniadorEventosDia(fecha, hora, tipo, nombre, adicional, todoElDia);
         }
         else
         {
-            dias[dia-1].aniadorEventosDia(fecha, hora, tipo, nombre, adicional);
+            dias[dia-1].aniadorEventosDia(fecha, hora, tipo, nombre, adicional, todoElDia);
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Vacía la agendea del mes, eliminando todos los eventos.
+     */
     public void vaciarAgendaMes()
     {
         for (int i = 0; i < dias.length; i++)
@@ -194,6 +199,59 @@ public class Mes
             {
                 dias[i].vaciarAgendaDia();
                 dias[i] = null;
+            }
+        }
+    }
+    //--------------------------------------------------------------------------
+    /**
+     * Verifica si hay eventos registrados en el mes.
+     *
+     * @return true si hay eventos registrados, de lo contrario false.
+     */
+    public boolean hayEventos()
+    {
+        boolean hay = false;
+        for (Dia dia : dias)
+        {
+            if (dia != null)
+            {
+                hay = true;
+            }
+        }
+        return hay;
+    }
+    //--------------------------------------------------------------------------
+    /**
+     * Guarda los eventos del mes o los eventos del día en un archivo, según la opción seleccionada por el usuario.
+     *
+     * @param eleccion La opción seleccionada por el usuario.
+     */
+    public void guardarFicheroMes(int eleccion)
+    {
+        if (eleccion == 11)
+        {
+            int dia = 0;
+            do {            
+                dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
+            } while (dia < 1 || dia > getUltimoDia());
+            
+            if(dias[dia-1] != null)
+            {
+                dias[dia-1].guardarFicheroDia(eleccion, nombreMes);
+            }
+            else
+            {
+                System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
+            }
+        }
+        else
+        {
+            for (Dia dia : dias)
+            {
+                if (dia != null)
+                {
+                    dia.guardarFicheroDia(eleccion, nombreMes);
+                }
             }
         }
     }
