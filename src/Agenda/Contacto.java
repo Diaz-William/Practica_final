@@ -57,7 +57,8 @@ public class Contacto
      */
     public void infoContacto()
     {
-        System.out.println("Contacto {apellido = " + apellido + ", nombre = " + nombre + ", correo = " + correo + "}");
+        System.out.println("Contacto\tApellido : " + apellido + "\n\t\tNombre   : " + nombre + "\n\t\tCorreo   : " + correo );
+        System.out.println("---------------------------------------------------------------");
     }
     //--------------------------------------------------------------------------
     /**
