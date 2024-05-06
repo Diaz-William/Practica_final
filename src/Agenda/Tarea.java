@@ -3,7 +3,6 @@ package Agenda;
 //API
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.temporal.ChronoField;
 
 /**
  * Esta clase hereda de la clase Evento y representa un evento de tipo tarea.
