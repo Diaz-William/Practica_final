@@ -97,18 +97,24 @@ public class Mes
      */
     public void eliminarRecordatorioTarea(int eleccion) throws InterruptedException
     {
+        boolean borrado;
         int dia = 0;
         do {            
             dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
         if (dias[dia-1] != null)
         {
-            dias[dia-1].quitarRecordatorioTarea(eleccion);
+            borrado = dias[dia-1].quitarRecordatorioTarea(eleccion);
+            //Si se logra borrar el evento y ya no hay más eventos, se "elimina" ese dia
+            if ((borrado) && (dias[dia-1].getIdEvento() == 0))
+            {
+                dias[dia-1] = null;
+            }
         }
         else
         {
             System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
-            Thread.sleep(3000);
+            Thread.sleep(2000);//Esperar 2 segundos
         }
     }
     //--------------------------------------------------------------------------
@@ -141,7 +147,7 @@ public class Mes
             else
             {
                 System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
-                Thread.sleep(3000);
+                Thread.sleep(2000);//Esperar 2 segundos
             }
         }
         else if (eleccion == 6)
@@ -157,7 +163,7 @@ public class Mes
             if (!dentro)
             {
                 System.out.println("No hay eventos en " + nombreMes);
-                Thread.sleep(3000);
+                Thread.sleep(2000);//Esperar 2 segundos
             }
         }
     }

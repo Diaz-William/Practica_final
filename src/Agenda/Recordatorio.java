@@ -102,7 +102,7 @@ public class Recordatorio extends Evento
             System.out.println("El recordatorio no es anual");
         }
         
-        Thread.sleep(3000);//Esperar 3 segundos
+        Thread.sleep(2000);//Esperar 2 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

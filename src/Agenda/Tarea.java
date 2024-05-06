@@ -102,7 +102,7 @@ public class Tarea extends Evento
             urgente = false;
             System.out.println("La tarea no es urgente");
         }
-        Thread.sleep(3000);//Esperar 3 segundos
+        Thread.sleep(2000);//Esperar 2 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

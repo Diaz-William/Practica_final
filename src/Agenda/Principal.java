@@ -469,7 +469,7 @@ public class Principal
                         fw.close();
                     try {
                         System.out.println("Se ha guardo el archivo correctamente");
-                        Thread.sleep(3000);//Esperar 3 segundos
+                        Thread.sleep(2000);//Esperar 2 segundos
                     } catch (Exception e) {
                     }
                 } catch (IOException e) {
