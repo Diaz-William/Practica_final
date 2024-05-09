@@ -94,24 +94,49 @@ public abstract class Evento
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
+
+    /**
+     * metodo para obtener el ID del evento.
+     * @return id el id del evento.
+     */
     public int getId()
     {
         return id;
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener si el evento es para todo el día o no .
+     * @return todoElDia booleano que indica si el evento es para todo el dia.
+     */
     public boolean getTodoElDia()
     {
         return todoElDia;
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener el nombre del evento.
+     * @return nombre el nombre del evento.
+     */
     public String getNombre() {
         return nombre;
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener la fecha del evento.
+     * @return fecha la fecha en la que seguarda el evento.
+     */
     public LocalDate getFecha() {
         return fecha;
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener la hora del evento.
+     * @return hora la hora en la que seguarda el evento.
+     */
     public LocalTime getHora() {
         return hora;
     }

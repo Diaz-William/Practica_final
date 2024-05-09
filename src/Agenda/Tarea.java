@@ -77,6 +77,11 @@ public class Tarea extends Evento
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
+
+    /**
+     * metodo para obtener si la tarea es urgente o no.
+     * @return urgente booleano que indica la urgencia de la tarea.
+     */
     public boolean getUrgente()
     {
         return urgente;
@@ -102,7 +107,7 @@ public class Tarea extends Evento
             urgente = false;
             System.out.println("La tarea no es urgente");
         }
-        Thread.sleep(2000);//Esperar 2 segundos
+        Thread.sleep(3000);//Esperar 3 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

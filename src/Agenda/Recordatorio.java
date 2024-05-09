@@ -76,6 +76,11 @@ public class Recordatorio extends Evento
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
+
+    /**
+     * metodo para obtener si el recordatorio es anual o no.
+     * @return anual booleano que indica si el recordatorio es anual.
+     */
     public boolean getAnual()
     {
         return anual;
@@ -102,7 +107,7 @@ public class Recordatorio extends Evento
             System.out.println("El recordatorio no es anual");
         }
         
-        Thread.sleep(2000);//Esperar 2 segundos
+        Thread.sleep(3000);//Esperar 3 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

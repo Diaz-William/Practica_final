@@ -27,20 +27,18 @@ public class Dia
      * Crea un nuevo objeto Dia con el número de día especificado.
      * @param numDia El número del día.
      */
-    public Dia(int numDia)
-    {
+    public Dia(int numDia) {
         this.numDia = numDia;
     }
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
-    public int getNumDia()
-    {
+
+    /**
+     * metodo para obtener el dia del mes.
+     * @return numDia el dia del mes.
+     */
+    public int getNumDia() {
         return numDia;
-    }
-    //--------------------------------------------------------------------------
-    public int getIdEvento()
-    {
-        return idEvento;
     }
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
@@ -63,6 +61,7 @@ public class Dia
                 hora.info();
             }
         }
+        //Entrada.limpiarBuffer();
         Entrada.esperarEnter();
     }//infoEventos
     //--------------------------------------------------------------------------
@@ -128,7 +127,7 @@ public class Dia
         else
         {
             System.out.println("No hay eventos a las " + hora);
-            Thread.sleep(2000);//Esperar 2 segundos
+            Thread.sleep(3000);
         }
     }
     //--------------------------------------------------------------------------
@@ -218,7 +217,7 @@ public class Dia
      * @param tipo Tipo del evento (recordatorio o tarea) a borrar.
      * @throws InterruptedException Si ocurre un error de E/S.
      */
-    private boolean eliminarPorId(int idBorrar, String tipo) throws InterruptedException
+    private void eliminarPorId(int idBorrar, String tipo) throws InterruptedException
     {
         boolean borrado = false;
         for (int i = 0; i < todoElDia.size(); i++)
@@ -257,8 +256,7 @@ public class Dia
             System.out.println("No hay un evento " + tipo + " con el id " + idBorrar);
         }
         
-        Thread.sleep(2000);//Esperar 2 segundos
-        return (borrado);
+        Thread.sleep(3000);
     }
     //--------------------------------------------------------------------------
     /**
@@ -266,28 +264,21 @@ public class Dia
      * @param eleccion Un entero que indica el tipo de evento que se desea crear (1.Recordatorio, 2.Tarea).
      * @throws InterruptedException Si ocurre un error de E/S.
      */
-    public boolean quitarRecordatorioTarea(int eleccion) throws InterruptedException
+    public void quitarRecordatorioTarea(int eleccion) throws InterruptedException
     {
-        boolean borrado;
         int idBorrar = 0;
         if (eleccion == 3)
         {
             infoRecordatorios();
             idBorrar = Entrada.leerEntero("Introduce el id del recordatorio a borrar > ");
-            borrado = eliminarPorId(idBorrar, "recordatorio");
+            eliminarPorId(idBorrar, "recordatorio");
         }
         else
         {
             infoTareas();
             idBorrar = Entrada.leerEntero("Introduce el id de la tarea a borrar > ");
-            borrado = eliminarPorId(idBorrar, "tarea");
+            eliminarPorId(idBorrar, "tarea");
         }
-        
-        if (borrado)
-        {
-            idEvento--;
-        }
-        return (borrado);
     }
     //--------------------------------------------------------------------------
     /**

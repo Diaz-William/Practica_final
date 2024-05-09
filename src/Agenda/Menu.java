@@ -15,6 +15,12 @@ public class Menu
      */
     Principal principal;
 
+    /**
+     * Crea un nuevo menu usando un objeto de la clase Principal
+     * @param principal objeto de la clase principal que representa a la misma.
+     * @throws AWTException Si ocurre un error al borrar la consola.
+     * @throws InterruptedException Si ocurre un error mientras se espera la entrada del usuario.
+     */
     public Menu(Principal principal) throws AWTException, InterruptedException {
         this.principal = principal;
         menu();

@@ -27,6 +27,11 @@ public class Principal
     private ArrayList <Mes> meses = new ArrayList();
     private ArrayList<Contacto> contactos = new ArrayList();
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener el año del cual se va a crear la agenda.
+     * @return anio el año de la agenda.
+     */
     public int getAnio() {
         return anio;
     }
@@ -469,7 +474,7 @@ public class Principal
                         fw.close();
                     try {
                         System.out.println("Se ha guardo el archivo correctamente");
-                        Thread.sleep(2000);//Esperar 2 segundos
+                        Thread.sleep(3000);//Esperar 3 segundos
                     } catch (Exception e) {
                     }
                 } catch (IOException e) {

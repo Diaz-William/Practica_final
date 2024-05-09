@@ -39,11 +39,21 @@ public class Mes
         
     //--------------------------------------------------------------------------
     //GETTERS & SETTERS 
+
+    /**
+     * metodo para obtener el ultimo dia del mes o los dias que tiene el mismo.
+     * @return dias.length la cantidad de dias que tiene el mes.
+     */
     public int getUltimoDia()
     {
         return (dias.length);
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener el mes del año.
+     * @return nombreMes el nombre del mes.
+     */
     public String getNombreMes()
     {
         return nombreMes;
@@ -97,24 +107,18 @@ public class Mes
      */
     public void eliminarRecordatorioTarea(int eleccion) throws InterruptedException
     {
-        boolean borrado;
         int dia = 0;
         do {            
             dia = Entrada.leerEntero("\s\s\sIntroduzca el dia [1-" + getUltimoDia() + "] > ");
         } while (dia < 1 || dia > getUltimoDia());
         if (dias[dia-1] != null)
         {
-            borrado = dias[dia-1].quitarRecordatorioTarea(eleccion);
-            //Si se logra borrar el evento y ya no hay más eventos, se "elimina" ese dia
-            if ((borrado) && (dias[dia-1].getIdEvento() == 0))
-            {
-                dias[dia-1] = null;
-            }
+            dias[dia-1].quitarRecordatorioTarea(eleccion);
         }
         else
         {
             System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
-            Thread.sleep(2000);//Esperar 2 segundos
+            Thread.sleep(3000);
         }
     }
     //--------------------------------------------------------------------------
@@ -147,7 +151,7 @@ public class Mes
             else
             {
                 System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
-                Thread.sleep(2000);//Esperar 2 segundos
+                Thread.sleep(3000);
             }
         }
         else if (eleccion == 6)
@@ -163,7 +167,7 @@ public class Mes
             if (!dentro)
             {
                 System.out.println("No hay eventos en " + nombreMes);
-                Thread.sleep(2000);//Esperar 2 segundos
+                Thread.sleep(3000);
             }
         }
     }

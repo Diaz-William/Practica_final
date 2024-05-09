@@ -33,16 +33,31 @@ public class Contacto
     //Getters & Setters
     
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener el apellido del contacto.
+     * @return apellido el apellido del contacto.
+     */
     public String getApellido()
     {
         return apellido;
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener el nombre del contacto.
+     * @return nombre el nombre del contacto.
+     */
     public String getNombre()
     {
         return nombre;
     }
     //--------------------------------------------------------------------------
+
+    /**
+     * metodo para obtener el correo del contacto.
+     * @return correo el correo del contacto.
+     */
     public String getCorreo()
     {
         return correo;
