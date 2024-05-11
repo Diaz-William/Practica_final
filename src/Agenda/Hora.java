@@ -195,4 +195,21 @@ public class Hora
         }
     }
     //--------------------------------------------------------------------------
+    /**
+     * Verifica si hay eventos guardados.
+     *
+     * @return true si hay eventos registrados, de lo contrario false.
+     */
+    public boolean hayEventosHora()
+    {
+        boolean hay = false;
+        for (Evento e : eventos) {
+            if (e != null)
+            {
+                hay = true;
+            }
+        }
+        return hay;
+    }
+    //--------------------------------------------------------------------------
 }//Class

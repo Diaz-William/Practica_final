@@ -218,7 +218,7 @@ public class Mes
      *
      * @return true si hay eventos registrados, de lo contrario false.
      */
-    public boolean hayEventos()
+    public boolean hayEventosMes()
     {
         boolean hay = false;
         for (Dia dia : dias)

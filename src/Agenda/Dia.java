@@ -212,7 +212,7 @@ public class Dia
     }
     //--------------------------------------------------------------------------
     /**
-     * Elimina un evento (recordatorio o tarea) del día en base a su identificador.
+     * Elimina un evento (recordatorio o tarea) del día o hora en base a su identificador.
      * @param idBorrar Identificador del evento (recordatorio o tarea) a borrar.
      * @param tipo Tipo del evento (recordatorio o tarea) a borrar.
      * @throws InterruptedException Si ocurre un error de E/S.
@@ -242,13 +242,30 @@ public class Dia
             }
         }
         
-        for (int i = 0; i < horas.length; i++) 
+        if (!borrado)
         {
-            if (horas[i] != null)
+            for (int i = 0; i < horas.length; i++) 
             {
-                borrado = horas[i].borrarEvento(idBorrar, tipo);
+                if (horas[i] != null)
+                {
+                    borrado = horas[i].borrarEvento(idBorrar, tipo);
+                }
+
             }
             
+            if (borrado)
+            {
+                for (int i = 0; i < horas.length; i++) 
+                {
+                    if (horas[i] != null)
+                    {
+                        if (!horas[i].hayEventosHora())
+                        {
+                            horas[i] = null;
+                        }
+                    }
+                }
+            }
         }
         
         if (!borrado)
@@ -256,7 +273,7 @@ public class Dia
             System.out.println("No hay un evento " + tipo + " con el id " + idBorrar);
         }
         
-        Thread.sleep(3000);
+        Thread.sleep(2000);//Esperar 2 segundos.
     }
     //--------------------------------------------------------------------------
     /**

@@ -244,7 +244,7 @@ public class Principal
             } while (mes < 1 || mes > 12);
             mes -= 1;
             
-            if (meses.get(mes).hayEventos())
+            if (meses.get(mes).hayEventosMes())
             {
                 meses.get(mes).guardarFicheroMes(eleccion);
             }
@@ -258,7 +258,7 @@ public class Principal
             int cont = 0;
             do {            
                 for (Mes mes : meses) {
-                    if (mes.hayEventos())
+                    if (mes.hayEventosMes())
                     {
                         mes.guardarFicheroMes(eleccion);
                     }
