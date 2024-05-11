@@ -61,8 +61,6 @@ public class Dia
                 hora.info();
             }
         }
-        //Entrada.limpiarBuffer();
-        Entrada.esperarEnter();
     }//infoEventos
     //--------------------------------------------------------------------------
     /**
@@ -126,8 +124,8 @@ public class Dia
         }
         else
         {
-            System.out.println("No hay eventos a las " + hora);
-            Thread.sleep(3000);
+            System.out.println("\s\s\sNo hay eventos a las " + hora);
+            Thread.sleep(2000);
         }
     }
     //--------------------------------------------------------------------------
@@ -168,7 +166,6 @@ public class Dia
             if (eleccion == 1)
             {
                 horas[posicion].recordatorio(idEvento, fecha, hora);
-                System.out.println("aaaa");
             }                
             else
             {
@@ -227,7 +224,7 @@ public class Dia
                 if (todoElDia.get(i).getId() == idBorrar && todoElDia.get(i) instanceof Recordatorio)
                 {
                     borrado = true;
-                    System.out.println("Se ha borrado el " + tipo + " con el id: " + idBorrar);
+                    System.out.println("\s\s\sSe ha borrado el " + tipo + " con el id: " + idBorrar);
                     todoElDia.remove(i);
                 }
             }
@@ -236,7 +233,7 @@ public class Dia
                 if (todoElDia.get(i).getId() == idBorrar && todoElDia.get(i) instanceof Tarea)
                 {
                     borrado = true;
-                    System.out.println("Se ha borrado el " + tipo + " con el id: " + idBorrar);
+                    System.out.println("\s\s\sSe ha borrado el " + tipo + " con el id: " + idBorrar);
                     todoElDia.remove(i);
                 }
             }
@@ -270,7 +267,7 @@ public class Dia
         
         if (!borrado)
         {
-            System.out.println("No hay un evento " + tipo + " con el id " + idBorrar);
+            System.out.println("\s\s\sNo hay un evento " + tipo + " con el id " + idBorrar);
         }
         
         Thread.sleep(2000);//Esperar 2 segundos.
@@ -287,15 +284,42 @@ public class Dia
         if (eleccion == 3)
         {
             infoRecordatorios();
-            idBorrar = Entrada.leerEntero("Introduce el id del recordatorio a borrar > ");
+            idBorrar = Entrada.leerEntero("\s\s\sIntroduce el id del recordatorio a borrar > ");
             eliminarPorId(idBorrar, "recordatorio");
         }
         else
         {
             infoTareas();
-            idBorrar = Entrada.leerEntero("Introduce el id de la tarea a borrar > ");
+            idBorrar = Entrada.leerEntero("\s\s\sIntroduce el id de la tarea a borrar > ");
             eliminarPorId(idBorrar, "tarea");
         }
+    }
+    //--------------------------------------------------------------------------
+    /**
+     * Verifica si hay eventos registrados en el dia.
+     *
+     * @return true si hay eventos registrados, de lo contrario false.
+     */
+    public boolean hayEventosDia()
+    {
+        boolean hay = false;
+        
+        for (Evento evento : todoElDia)
+        {
+            if (evento != null)
+            {
+                hay = true;
+            }
+        }
+        for (Hora hora : horas)
+        {
+            if (hora != null)
+            {
+                hay = true;
+            }
+        }
+        
+        return hay;
     }
     //--------------------------------------------------------------------------
     /**

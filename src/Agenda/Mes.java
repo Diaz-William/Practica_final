@@ -71,7 +71,7 @@ public class Mes
         for (Dia dia : dias) {
             if (dia != null)
             {
-                System.out.println("Dia " + dia.getNumDia());
+                System.out.println("\s\s\sDia " + dia.getNumDia());
                 dia.infoEvento();
             }
         }
@@ -114,11 +114,15 @@ public class Mes
         if (dias[dia-1] != null)
         {
             dias[dia-1].quitarRecordatorioTarea(eleccion);
+            if (!dias[dia-1].hayEventosDia())
+            {
+                dias[dia-1] = null;
+            }
         }
         else
         {
-            System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
-            Thread.sleep(3000);
+            System.out.println("\s\s\sNo hay eventos el dia " + dia + " de " + nombreMes);
+            Thread.sleep(2000);
         }
     }
     //--------------------------------------------------------------------------
@@ -131,7 +135,7 @@ public class Mes
     {
         boolean dentro = false;
         
-        if (eleccion == 5 || eleccion == 7)
+        if ((eleccion == 5 || eleccion == 7) && (hayEventosMes()))
         {
             int dia = 0;
             do {            
@@ -147,11 +151,12 @@ public class Mes
                 {
                     dias[dia-1].infoEvento();
                 }
+                Entrada.esperarEnter();
             }
             else
             {
-                System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
-                Thread.sleep(3000);
+                System.out.println("\s\s\sNo hay eventos el dia " + dia + " de " + nombreMes);
+                Thread.sleep(2000);
             }
         }
         else if (eleccion == 6)
@@ -166,9 +171,18 @@ public class Mes
             }
             if (!dentro)
             {
-                System.out.println("No hay eventos en " + nombreMes);
-                Thread.sleep(3000);
+                System.out.println("\s\s\sNo hay eventos en " + nombreMes);
+                Thread.sleep(2000);
             }
+            else
+            {
+                Entrada.esperarEnter();
+            }
+        }
+        else
+        {
+            System.out.println("\s\s\sNo hay eventos en " + nombreMes);
+            Thread.sleep(2000);
         }
     }
     //--------------------------------------------------------------------------
@@ -251,7 +265,7 @@ public class Mes
             }
             else
             {
-                System.out.println("No hay eventos el dia " + dia + " de " + nombreMes);
+                System.out.println("\s\s\sNo hay eventos el dia " + dia + " de " + nombreMes);
             }
         }
         else

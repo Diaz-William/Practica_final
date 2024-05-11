@@ -64,7 +64,7 @@ public class Principal
      */
     private void instanciarMeses()
     {
-        anio = Entrada.leerEntero("Introduce el año > ");
+        anio = Entrada.leerEntero("\s\s\sIntroduce el año > ");
         meses.add(new Mes("Enero", 31));
         boolean bisiesto = Year.of(anio).isLeap();
         if (bisiesto) 
@@ -138,8 +138,8 @@ public class Principal
     public void leerFicheroAnio() throws InterruptedException
     {
         Entrada.limpiarBuffer();
-        System.out.println("Si lees el fichero los eventos guardados seran borrados");
-        String res = Entrada.leerCadena("¿Quieres continuar? [s,si/n,no] > ");
+        System.out.println("\s\s\sSi lees el fichero los eventos guardados seran borrados");
+        String res = Entrada.leerCadena("\s\s\s¿Quieres continuar? [s,si/n,no] > ");
         
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
@@ -149,7 +149,8 @@ public class Principal
             int cont = 0;
 
             try {
-                fr = new FileReader("c:/ficheros/eventos.dat");
+                //fr = new FileReader("c:/ficheros/eventos.dat");
+                fr = new FileReader("./src/ficheros/eventos.dat");
                 BufferedReader entrada = new BufferedReader(fr);
                 do {
                     informacion = entrada.readLine();
@@ -172,8 +173,8 @@ public class Principal
                     if (fr != null) {
                         fr.close();
                     }
-                    System.out.println("Se han guardado " + cont + " eventos.");
-                    Thread.sleep(3000);//Esperar 3 segundos
+                    System.out.println("\s\s\sSe han guardado " + cont + " eventos.");
+                    Thread.sleep(2000);//Esperar 2 segundos
                 } catch (IOException e) {
                     System.out.println(e.getMessage());                                                               
                 }
@@ -250,7 +251,7 @@ public class Principal
             }
             else
             {
-                System.out.println("No hay eventos en " + meses.get(mes).getNombreMes());
+                System.out.println("\s\s\sNo hay eventos en " + meses.get(mes).getNombreMes());
             }
         }
         else
@@ -268,8 +269,8 @@ public class Principal
         }
         
         try {
-            System.out.println("Se han guardado los eventos en el fichero");
-            Thread.sleep(3000);//Esperar 3 segundos
+            System.out.println("\s\s\sSe han guardado los eventos en el fichero");
+            Thread.sleep(2000);//Esperar 2 segundos
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -284,8 +285,8 @@ public class Principal
     public void leerContactos() throws InterruptedException
     {
         Entrada.limpiarBuffer();
-        System.out.println("Si lees el fichero los contactos guardados seran borrados");
-        String res = Entrada.leerCadena("¿Quieres continuar? [s,si/n,no] > ");
+        System.out.println("\s\s\sSi lees el fichero los contactos guardados seran borrados");
+        String res = Entrada.leerCadena("\s\s\s¿Quieres continuar? [s,si/n,no] > ");
         
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
@@ -295,7 +296,8 @@ public class Principal
             int cont = 0;
 
             try {
-                fr = new FileReader("c:/ficheros/contactos.dat");
+                //fr = new FileReader("c:/ficheros/contactos.dat");
+                fr = new FileReader("./src/ficheros/contactos.dat");
                 BufferedReader entrada = new BufferedReader(fr);
                 do {
                     informacion = entrada.readLine();
@@ -318,8 +320,8 @@ public class Principal
                     if (fr != null) {
                         fr.close();
                     }
-                    System.out.println("Se han guardado " + cont + " contactos.");
-                    Thread.sleep(3000);//Esperar 3 segundos
+                    System.out.println("\s\s\sSe han guardado " + cont + " contactos.");
+                    Thread.sleep(2000);//Esperar 2 segundos
                 } catch (IOException e) {
                     System.out.println(e.getMessage());                                                               
                 }
@@ -360,17 +362,17 @@ public class Principal
     {
         String correo = null;
         Entrada.limpiarBuffer();
-        String apellido = Entrada.leerCadena("Introduce el apellido > ");
-        String nombre = Entrada.leerCadena("Introduce el nombre > ");
+        String apellido = Entrada.leerCadena("\s\s\sIntroduce el apellido > ");
+        String nombre = Entrada.leerCadena("\s\s\sIntroduce el nombre > ");
         do {            
-            correo = Entrada.leerCadena("Introduce el correo [@] > ");
+            correo = Entrada.leerCadena("\s\s\sIntroduce el correo [@] > ");
         } while (!correo.contains("@"));
         
         contactos.add(new Contacto(apellido, nombre, correo));
         
         try {
-            System.out.println("Se ha creado el contacto.");
-            Thread.sleep(3000);//Esperar 3 segundos
+            System.out.println("\s\s\sSe ha creado el contacto.");
+            Thread.sleep(2000);//Esperar 2 segundos
         } catch (Exception e) {
         }
     }
@@ -389,11 +391,14 @@ public class Principal
     //--------------------------------------------------------------------------
     /**
      * Busca un contacto en la agenda de contactos por su nombre o apellido.
+     * @throws AWTException Si se produce un error al acceder al robot.
      */
-    public void buscarContacto()
+    public void buscarContacto() throws AWTException
     {
+        
         Entrada.limpiarBuffer();
-        String info = Entrada.leerCadena("Introduce el nombre o el apellido > ");
+        
+        String info = Entrada.leerCadena("\s\s\sIntroduce el nombre o el apellido > ");
         info = info.toLowerCase();
         String nombre = null;
         String apellido = null;
@@ -410,12 +415,12 @@ public class Principal
                 encontrado = true;
             }
         }
-        
+        Entrada.pulsarEnter();
         if (!encontrado)
         {
             try {
-                System.out.println("No hay un contacto que se llame o apellide " + info);
-                Thread.sleep(3000);//Esperar 3 segundos
+                System.out.println("\s\s\sNo hay un contacto que se llame o apellide " + info);
+                Thread.sleep(2000);//Esperar 2 segundos
             } catch (Exception e) {
             }
         }
@@ -434,23 +439,25 @@ public class Principal
         String info = null;
         
         Entrada.limpiarBuffer();
-        System.out.println("Si guardas en el fichero los antiguos contactos seran borrados");
-        String res = Entrada.leerCadena("¿Quieres continuar? [s,si/n,no] > ");
+        System.out.println("\s\s\sSi guardas en el fichero los antiguos contactos seran borrados");
+        String res = Entrada.leerCadena("\s\s\s¿Quieres continuar? [s,si/n,no] > ");
         
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
-            String rutaArchivo = "c:/ficheros/contactos.dat";
+            //String rutaArchivo = "c:/ficheros/contactos.dat";
+            String rutaArchivo = "./src/ficheros/contactos.dat";
             Path archivo = Paths.get(rutaArchivo);
             
             try {
                 Files.deleteIfExists(archivo);
             } catch (Exception e) {
-                System.out.println("No se puedo borrar el archivo " + e.getMessage());
+                System.out.println("\s\s\sNo se puedo borrar el archivo " + e.getMessage());
             }
             
             try 
             {
-                fw = new FileWriter("c:/ficheros/contactos.dat",true);
+                //fw = new FileWriter("c:/ficheros/contactos.dat",true);
+                fw = new FileWriter("./src/ficheros/contactos.dat",true);
                 PrintWriter salida = new PrintWriter(fw);
 
                 for (Contacto c : contactos)
@@ -473,8 +480,8 @@ public class Principal
                     if (fw != null) 
                         fw.close();
                     try {
-                        System.out.println("Se ha guardo el archivo correctamente");
-                        Thread.sleep(3000);//Esperar 3 segundos
+                        System.out.println("\s\s\sSe ha guardo el archivo correctamente");
+                        Thread.sleep(2000);//Esperar 2 segundos
                     } catch (Exception e) {
                     }
                 } catch (IOException e) {

@@ -37,7 +37,8 @@ public class GuardarEvento
             nombreFichero ="agenda_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss"))+ "_" + nombreMes + "-Dia-" + dia + ".dat";
         }
         
-        String ruta = "c:/ficheros/" + nombreFichero;
+        //String ruta = "c:/ficheros/" + nombreFichero;
+        String ruta = "./src/ficheros/" + nombreFichero;
         FileWriter fw = null;
         
         try 

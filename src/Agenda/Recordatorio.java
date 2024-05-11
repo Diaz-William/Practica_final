@@ -95,19 +95,19 @@ public class Recordatorio extends Evento
      */
     private void pedirAnual() throws InterruptedException
     {
-        String res = Entrada.leerCadena("El Recordatorio es anual [s,si/n,no] > ");
+        String res = Entrada.leerCadena("\s\s\sEl Recordatorio es anual [s,si/n,no] > ");
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
             anual = true;
-            System.out.println("El recordatorio es anual");
+            System.out.println("\s\s\sEl recordatorio es anual");
         }
         else
         {
             anual = false;
-            System.out.println("El recordatorio no es anual");
+            System.out.println("\s\s\sEl recordatorio no es anual");
         }
         
-        Thread.sleep(3000);//Esperar 3 segundos
+        Thread.sleep(2000);//Esperar 2 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

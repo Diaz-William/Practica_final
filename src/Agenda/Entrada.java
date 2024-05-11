@@ -1,6 +1,9 @@
 package Agenda;
 
 //API
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.Scanner;
 /**
  * Esta clase proporciona métodos estáticos para leer datos del usuario desde la consola.
@@ -64,12 +67,23 @@ public class Entrada {
     }
     //--------------------------------------------------------------------------
     /**
+    * Simula la pulsación de la tecla "Enter".
+    * @throws AWTException Si se produce un error al acceder al robot.
+    */
+    public static void pulsarEnter() throws AWTException
+    {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+    }
+    //--------------------------------------------------------------------------
+    /**
      * Pausa el programa y solicita al usuario que pulse la tecla Enter para continuar.
      */
     public static void esperarEnter()
     {
         limpiarBuffer();
-        System.out.print("\nPresiona enter para continuar...");
+        System.out.print("\n\s\s\sPresiona enter para continuar...");
         String enter = entrada.nextLine();
     }
     //--------------------------------------------------------------------------

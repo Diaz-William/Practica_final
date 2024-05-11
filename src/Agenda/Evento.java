@@ -149,7 +149,7 @@ public abstract class Evento
     private void pedirInfo ()
     {
         Entrada.limpiarBuffer();
-        nombre = Entrada.leerCadena("Introduce el nombre del evento > ");
+        nombre = Entrada.leerCadena("\s\s\sIntroduce el nombre del evento > ");
     }//pedirInfo
     //--------------------------------------------------------------------------
     /**
@@ -169,13 +169,13 @@ public abstract class Evento
       */
         if (e  instanceof Recordatorio)
         {
-            System.out.println("Recordatorio\s\s" + id + "  " + nombre);
-            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
+            System.out.println("\s\s\sRecordatorio\s\s" + id + "  " + nombre);
+            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : "") + "\n");
         }
         if (e instanceof Tarea)
         {
-            System.out.println("Tarea\s\s" + id + "  " + nombre);
-            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : ""));
+            System.out.println("\s\s\sTarea\s\s" + id + "  " + nombre);
+            System.out.println("\t\tFecha " + fecha + " " + (hora != null ? "Hora " + hora : "") + (todoElDia ? "Todo el dia" : "") + "\n");
         }
     }
     //--------------------------------------------------------------------------

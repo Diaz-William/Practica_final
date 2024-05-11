@@ -96,18 +96,18 @@ public class Tarea extends Evento
      */
     private void pedirUrgente() throws InterruptedException
     {
-        String res = Entrada.leerCadena("La Tarea es urgente [s,si/n,no] > ");
+        String res = Entrada.leerCadena("\s\s\sLa Tarea es urgente [s,si/n,no] > ");
         if (res.equalsIgnoreCase("s") || res.equalsIgnoreCase("si"))
         {
             urgente = true;
-            System.out.println("La tarea es urgente");
+            System.out.println("\s\s\sLa tarea es urgente");
         }
         else
         {
             urgente = false;
-            System.out.println("La tarea no es urgente");
+            System.out.println("\s\s\sLa tarea no es urgente");
         }
-        Thread.sleep(3000);//Esperar 3 segundos
+        Thread.sleep(2000);//Esperar 2 segundos
     }
     //--------------------------------------------------------------------------
 }//Class

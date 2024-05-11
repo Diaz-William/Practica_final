@@ -92,7 +92,7 @@ public class Hora
                 if (eventos.get(i).getId() == idBorrar && eventos.get(i) instanceof Recordatorio)
                 {
                     borrado = true;
-                    System.out.println("Se ha borrado el " + tipo + " con el id: " + idBorrar);
+                    System.out.println("\s\s\sSe ha borrado el " + tipo + " con el id: " + idBorrar);
                     eventos.remove(i);
                 }
             }
@@ -101,7 +101,7 @@ public class Hora
                 if (eventos.get(i).getId() == idBorrar && eventos.get(i) instanceof Tarea)
                 {
                     borrado = true;
-                    System.out.println("Se ha borrado el " + tipo + " con el id: " + idBorrar);
+                    System.out.println("\s\s\sSe ha borrado el " + tipo + " con el id: " + idBorrar);
                     eventos.remove(i);
                 }
             }

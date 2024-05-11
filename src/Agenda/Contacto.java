@@ -72,7 +72,7 @@ public class Contacto
      */
     public void infoContacto()
     {
-        System.out.println("Contacto\tApellido : " + apellido + "\n\t\tNombre   : " + nombre + "\n\t\tCorreo   : " + correo );
+        System.out.println("\s\s\sApellido : " + apellido + "\n\s\s\sNombre   : " + nombre + "\n\s\s\sCorreo   : " + correo );
         System.out.println("---------------------------------------------------------------");
     }
     //--------------------------------------------------------------------------
